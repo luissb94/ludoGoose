@@ -12,13 +12,14 @@ namespace FinalProjectLudo
         protected Hardware hardware;
         protected Font font;
         protected IntPtr textSpace;
-
+        protected PlayerSelect playSelect;
 
         public LudoGame(Hardware hardware)
         {
             imgLudo = new Image("img/ludoBoard.jpg", 600, 600);
             imgLudo.MoveTo(0, 0);
             this.hardware = hardware;
+            this.playSelect = new PlayerSelect(hardware);
         }
 
         public void LudoPlayGame()
@@ -27,7 +28,9 @@ namespace FinalProjectLudo
             hardware.ClearScreen();
             hardware.DrawImage(imgLudo);
             hardware.UpdateScreen();
-            
+
+            playSelect.ShowPlayerSelect();
+
             do
             {
                 if (hardware.KeyPressed() == Hardware.KEY_ESC)

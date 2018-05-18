@@ -2,6 +2,8 @@
 //V0.01 - Creating main to test functionallity.
 //V0.03 - Adding the methods to show the different background
 //          of the different modes.
+//V0.05 - Minor changes to the code, if I press the 1st option
+//          in the menu it will show ludoGame instead of playerSelect.
 
 using System;
 using System.Collections.Generic;
@@ -35,7 +37,6 @@ namespace FinalProjectLudo
                     switch(menu.GetChosenGame())
                     {
                         case 1:
-                            playerSelect.ShowPlayerSelect();
                             ludo.LudoPlayGame();
                             break;
                         case 2:

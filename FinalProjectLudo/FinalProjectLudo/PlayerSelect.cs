@@ -1,7 +1,7 @@
 ﻿//Luis Selles
 //V0.03 - Class to make the players enter their name so it can be shown
 //          on the next image of the game.
-
+//V0.05 - Made a for to let the users enters his name
 using System;
 using Tao.Sdl;
 
@@ -9,10 +9,11 @@ namespace FinalProjectLudo
 {
     class PlayerSelect
     {
-        protected IntPtr textPlayer1, textPlayer2, textPlayer3, textPlayer4,choosePlayer;
+        protected IntPtr textPlayer1, textPlayer2, textPlayer3, textPlayer4,choosePlayer, txtName;
         protected Font font;
         protected Hardware hardware;
         protected Image imgPlayerSelect;
+
 
         public PlayerSelect(Hardware hardware)
         {
@@ -27,6 +28,9 @@ namespace FinalProjectLudo
         public void ShowPlayerSelect()
         {
             bool exit = false;
+            string name = "";
+            short yNames = 200;
+            char addLetter;
 
             font = new Font("font/fuenteproy.ttf", 20);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
@@ -59,12 +63,37 @@ namespace FinalProjectLudo
             hardware.WriteText(textPlayer4, 200, 500);
             hardware.WriteText(choosePlayer, 370, 50);
 
-            hardware.UpdateScreen();
+            hardware.UpdateScreen(); 
 
+            //This for will let the users enter his name and will show it 
+            //letter by letter
+            for(int i = 0; i < 4; i++)
+            {
+                exit = false;
+                name = "";
+                do
+                {
+                    addLetter = hardware.ReadLetter();
+                    
+                    if (addLetter != '!')
+                        name += addLetter;
+
+                    txtName = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    name, black);
+                    hardware.WriteText(txtName, 700, yNames);
+                    hardware.UpdateScreen();
+                    
+
+                } while (addLetter != '!');
+                
+                yNames += 100;
+            }
+
+            exit = false;
 
             do
             {
-                if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                if (hardware.KeyPressed() == Hardware.KEY_ENTER)
                 {
                     exit = true;
                 }
