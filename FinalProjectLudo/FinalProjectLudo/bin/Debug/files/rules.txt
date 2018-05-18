@@ -1,0 +1,33 @@
+1. Al comenzar el juego todas las fichas están en la casa de su color.
+2. Las fichas se mueven en sentido contrario a las agujas del reloj.
+3. Se debe mover siempre ficha, solo podrá pasar turno cuando 
+  la casilla en la que debe quedarse ya esté ocupada por dos fichas.
+4. El jugador deberá sacar un 5 para poder sacar ficha de su casa,
+  con el primer 5 se podrán sacar 2 fichas a la par.
+5. Cuando se saque un 5 y no pueda sacar ficha de su casa 
+  porque tenga ya dos fichas (propias) en la salida, deberá mover 5 casillas 
+  con otra ficha.
+6. Si al tener que sacar ficha hubieran ya 2 (que no sean nuestras), 
+  podremos sacar una ficha y nos comeremos a la última en haberse 
+  colocado en nuestra salida, o la de color distinto al 
+  nuestro (si hubiera una nuestra).
+7. Si al sacar un 6 no tenemos ninguna ficha en nuestra casa, 
+  contaremos 12 en lugar de 6.
+8. Al sacar un 6 podremos repetir turno, si saca otro 6 volverá 
+  a repetir turno, pero si saca otro 6 (la tercera vez) la última 
+  ficha que movió volverá a su casa. Sólo se salvará si estuviera 
+  ya en las casillas coloradas de antes de la meta.
+9. Al colocar dos fichas del mismo jugador en una casilla 
+  marcada con un circulo se producirá una barrera, ésta no
+  podra ser sobrepasada por ninguna ficha.
+10. Cuando el jugador que tenga una barrera creada saque un 6 
+  deberá abrir obligatoriamente la barrera.
+11. Si una ficha cae en una casilla blanca y numerada ocupada 
+  por una ficha de otro color se la comerá. La ficha comida 
+  irá a su casa original (de su mismo color). El jugador que coma contará 20 casillas.
+12. En las salidas y en los seguros, no es posible comer y 
+  pueden estar dos fichas de colores diferentes
+13. Una ficha entra a la meta con un número exacto de casillas, 
+  si el número no es exacto no se puede mover.
+14. Cuando una ficha entre a meta, podrá contar 10 con otra ficha.
+15. El jugador que coloque sus 4 fichas en meta, ganará el juego.

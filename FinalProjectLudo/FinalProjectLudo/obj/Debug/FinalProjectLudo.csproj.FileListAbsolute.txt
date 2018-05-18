@@ -1,0 +1,55 @@
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.exe.config
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\ludoBoard.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\welcomescreen.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_image.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_mixer.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_ttf.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\Tao.Sdl.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\zlib1.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.exe
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.pdb
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.csprojResolveAssemblyReference.cache
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.exe
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.pdb
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\libfreetype-6.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\libpng12-0.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\libpng12.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\welcomescreen.png
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\jpeg.dll
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\menuscreen.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\font\fuenteproy.ttf
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\arrowcool.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\arrow.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\credits.txt
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\credits.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\playerSelect.jpg
+D:\1º DAM\Programacion\ProyectoFinal\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\rules.txt
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\credits.txt
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\rules.txt
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\arrow.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\arrowcool.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\credits.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\menuscreen.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\playerSelect.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\welcomescreen.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\welcomescreen.png
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\jpeg.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\libfreetype-6.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\libpng12-0.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\libpng12.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\ludoBoard.jpg
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_image.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_mixer.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\SDL_ttf.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\Tao.Sdl.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\zlib1.dll
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\font\fuenteproy.ttf
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.exe.config
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.exe
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.pdb
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.exe
+C:\Users\Daniel\Desktop\FinalProjectLudo\FinalProjectLudo\obj\Debug\FinalProjectLudo.pdb
