@@ -5,6 +5,8 @@
 //            also adding new KEYS UP and DOWN
 //V0.05 - Made a method to return the key pressed by
 //            the user, but will return a char.
+//V0.05 - Added 1,2,3,4 to hardware Keys.
+
 using System;
 using Tao.Sdl;
 using System.Threading;
@@ -46,6 +48,10 @@ namespace FinalProjectLudo
         public const int KEY_Y = Sdl.SDLK_y;
         public const int KEY_Z = Sdl.SDLK_z;
         public const int KEY_DELETE = Sdl.SDLK_DELETE;
+        public const int KEY_1 = Sdl.SDLK_1;
+        public const int KEY_2 = Sdl.SDLK_2;
+        public const int KEY_3 = Sdl.SDLK_3;
+        public const int KEY_4 = Sdl.SDLK_4;
 
         short screenWidth;
         short screenHeight;
@@ -245,12 +251,65 @@ namespace FinalProjectLudo
                 case KEY_DELETE:
                     let = ' ';
                     break;
+                case KEY_1:
+                    let = '1';
+                    break;
+                case KEY_2:
+                    let = '2';
+                    break;
+                case KEY_3:
+                    let = '3';
+                    break;
+                case KEY_4:
+                    let = '4';
+                    break;
                 default:
                     //NOTHING TO DO
                     break;
             }
 
             return let;
+        }
+
+        public char ReadNumber()
+        {
+            char number = ' ';
+            bool exit = false;
+            int key_int;
+            do
+            {
+                key_int = KeyPressed();
+                if (key_int != -1)
+                    exit = true;
+
+            } while (!exit);
+
+            switch (key_int)
+            {
+                case KEY_ENTER:
+                    number = '!';
+                    break;
+                case KEY_DELETE:
+                    number = ' ';
+                    break;
+                case KEY_1:
+                    number = '1';
+                    break;
+                case KEY_2:
+                    number = '2';
+                    break;
+                case KEY_3:
+                    number = '3';
+                    break;
+                case KEY_4:
+                    number = '4';
+                    break;
+                default:
+                    //NOTHING TO DO
+                    break;
+            }
+
+            return number;
         }
     }
 }

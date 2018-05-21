@@ -1,5 +1,6 @@
 ﻿//Luis Sellés Blanes
 //V0.02 - Creating main menu of the game
+//V0.06 - Modified menuScreen and added RulesScreen
 
 using System;
 using Tao.Sdl;
@@ -17,7 +18,7 @@ namespace FinalProjectLudo
             imgBack = new Image("img/menuscreen.jpg", 1152, 648);
             imgBack.MoveTo(0, 0);
             imgArrow = new Image("img/arrowcool.jpg", 40, 40);
-            imgArrow.MoveTo(300, 165);
+            imgArrow.MoveTo(250, 180);
 
             this.hardware = hardware;
         }
@@ -39,12 +40,12 @@ namespace FinalProjectLudo
                 if (keyPress == Hardware.KEY_UP && chosenGame > 1)
                 {
                     chosenGame--;
-                    imgArrow.MoveTo(300, (short)(imgArrow.Y - 86));
+                    imgArrow.MoveTo(300, (short)(imgArrow.Y - 75));
                 }
                 else if (keyPress == Hardware.KEY_DOWN && chosenGame < 6)
                 {
                     chosenGame++;
-                    imgArrow.MoveTo(300, (short)(imgArrow.Y + 86));
+                    imgArrow.MoveTo(300, (short)(imgArrow.Y + 75));
                 }
                 else if (keyPress == Hardware.KEY_SPACE)
                 {

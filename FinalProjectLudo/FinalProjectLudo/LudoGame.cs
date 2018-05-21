@@ -13,6 +13,7 @@ namespace FinalProjectLudo
         protected Font font;
         protected IntPtr textSpace;
         protected PlayerSelect playSelect;
+        protected MenuLudo menu;
 
         public LudoGame(Hardware hardware)
         {
@@ -20,23 +21,43 @@ namespace FinalProjectLudo
             imgLudo.MoveTo(0, 0);
             this.hardware = hardware;
             this.playSelect = new PlayerSelect(hardware);
+            this.menu = new MenuLudo(hardware);
         }
 
         public void LudoPlayGame()
         {
             bool exit = false;
-            hardware.ClearScreen();
-            hardware.DrawImage(imgLudo);
-            hardware.UpdateScreen();
+            
 
             playSelect.ShowPlayerSelect();
 
+            //Main loop of the ludo game. It will show a menu, step by step
+            //to show the player hoy to play.
             do
             {
-                if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                exit = false;
+                hardware.ClearScreen();
+                hardware.DrawImage(imgLudo);
+                hardware.UpdateScreen();
+
+                menu.ShowFirstStep();
+
+                do
                 {
-                    exit = true;
-                }
+                    //Repeat until press 1
+                } while (hardware.KeyPressed() != Hardware.KEY_1);
+
+                menu.ShowSecondStep();
+
+
+                do
+                {
+                    if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                    {
+                        exit = true;
+                    }
+                } while(!exit);
+                
             } while (!exit);
         }
     }

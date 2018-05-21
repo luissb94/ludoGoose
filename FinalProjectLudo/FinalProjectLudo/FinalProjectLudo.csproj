@@ -56,6 +56,7 @@
     <Compile Include="Hardware.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="LudoGame.cs" />
+    <Compile Include="MenuLudo.cs" />
     <Compile Include="MenuScreen.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerSelect.cs" />
