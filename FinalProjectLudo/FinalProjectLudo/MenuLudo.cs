@@ -58,7 +58,7 @@ namespace FinalProjectLudo
 
                 txtChip = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     chipToMove, yellow);
-                hardware.WriteText(txtChip, 950, 380);
+                hardware.WriteText(txtChip, 1050, 380);
                 hardware.UpdateScreen();
 
             } while (addNumber != '!');

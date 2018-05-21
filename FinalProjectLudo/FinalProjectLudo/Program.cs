@@ -4,7 +4,7 @@
 //          of the different modes.
 //V0.05 - Minor changes to the code, if I press the 1st option
 //          in the menu it will show ludoGame instead of playerSelect.
-
+//V0.06 - Deleted "default" case.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace FinalProjectLudo
                             ludo.LudoPlayGame();
                             break;
                         case 2:
-                            playerSelect.ShowPlayerSelect();
+                            playerSelect.Show();
                             break;
                         case 3:
                             playerSelect.ShowPlayerSelectAgainstIA();
@@ -52,12 +52,6 @@ namespace FinalProjectLudo
                             break;
                         case 6:
                             rules.ShowRules();
-                            break;
-
-                        default:
-                            //Never will get here because
-                            //Player cant choose any other option
-                            //Than menu, for now.
                             break;
                     }
                 }

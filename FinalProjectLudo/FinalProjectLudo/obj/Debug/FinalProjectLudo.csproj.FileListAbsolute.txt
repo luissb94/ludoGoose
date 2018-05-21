@@ -80,3 +80,9 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\font\fuenteproy.ttf
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.exe
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\FinalProjectLudo.pdb
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll1.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll2.JPG
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll3.JPG
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll4.JPG
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll5.JPG
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll6.JPG

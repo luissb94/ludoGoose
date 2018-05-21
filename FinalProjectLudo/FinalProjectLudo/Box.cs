@@ -3,9 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
 namespace FinalProjectLudo
 {
@@ -23,6 +22,9 @@ namespace FinalProjectLudo
 
     class Box
     {
+        protected string FTPuser = "luisludo";
+        protected string FTPpass = "Ef2oo6$0";
+
         //protected string Color { get; set; }
         //protected int X;
         //protected int Y;
@@ -89,6 +91,27 @@ namespace FinalProjectLudo
                 arrayBox[Number].isMultipiece = true;
             }
 
+        }
+
+        //Method to upload the file boxesData.txt with the content of 
+        //all the boxes in Ludo game. After that i will make another
+        //method to download this file and parse the data, to make
+        //all players get syncronized.
+        public void UploadToFtp()
+        {
+            StreamWriter file = File.CreateText("files/boxesData.txt");
+
+            for(int i = 0; i < arrayBox.Length; i++)
+            {
+                file.WriteLine(arrayBox[i].x + "," + arrayBox[i].y + "," + arrayBox[i].color
+                    + "," + arrayBox[i].isMultipiece + "," + arrayBox[i].isHouse
+                    + "," + arrayBox[i].isFinishBox + "," + arrayBox[i].isEmpty);
+            }
+
+            file.Close();
+
+            string fileToUpload = "files/boxesData.txt";
+            FtpWebRequest ftp = WebRequest.Create(new Uri(string.Format(@"ftp://185.22.92.60/httpdocs/", "127.0.0.1", fileToUpload))) as FtpWebRequest;
         }
 
     }

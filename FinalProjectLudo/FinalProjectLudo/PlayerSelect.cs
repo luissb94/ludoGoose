@@ -25,7 +25,7 @@ namespace FinalProjectLudo
 
         //This method will show 4 "insert player name" and, coming soon, it will let
         //the users enter their name.
-        public void ShowPlayerSelect()
+        public void Show()
         {
             bool exit = false;
             string name = "";
