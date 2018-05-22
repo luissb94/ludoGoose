@@ -26,7 +26,7 @@ namespace FinalProjectLudo
         }
 
         //Method to show the welcomeScreen, it will last until player press space.
-        public void ShowWelcomeScreen()
+        public void Show()
         {
             bool spacePressed = false, escPressed = false;
             font = new Font("font/fuenteproy.ttf", 20);

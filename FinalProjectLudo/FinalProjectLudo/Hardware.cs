@@ -52,6 +52,12 @@ namespace FinalProjectLudo
         public const int KEY_2 = Sdl.SDLK_2;
         public const int KEY_3 = Sdl.SDLK_3;
         public const int KEY_4 = Sdl.SDLK_4;
+        public const int KEY_5 = Sdl.SDLK_5;
+        public const int KEY_6 = Sdl.SDLK_6;
+        public const int KEY_7 = Sdl.SDLK_7;
+        public const int KEY_8 = Sdl.SDLK_8;
+        public const int KEY_9 = Sdl.SDLK_9;
+        public const int KEY_0 = Sdl.SDLK_0;
 
         short screenWidth;
         short screenHeight;
@@ -271,6 +277,7 @@ namespace FinalProjectLudo
             return let;
         }
 
+        //Method to read numbers.
         public char ReadNumber()
         {
             char number = ' ';
@@ -304,8 +311,23 @@ namespace FinalProjectLudo
                 case KEY_4:
                     number = '4';
                     break;
-                default:
-                    //NOTHING TO DO
+                case KEY_5:
+                    number = '5';
+                    break;
+                case KEY_6:
+                    number = '6';
+                    break;
+                case KEY_7:
+                    number = '7';
+                    break;
+                case KEY_8:
+                    number = '8';
+                    break;
+                case KEY_9:
+                    number = '9';
+                    break;
+                case KEY_0:
+                    number = '0';
                     break;
             }
 

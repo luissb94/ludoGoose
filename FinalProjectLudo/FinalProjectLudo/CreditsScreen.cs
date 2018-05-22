@@ -25,7 +25,7 @@ namespace FinalProjectLudo
 
         //Creating Show method, it will show the credits one line by one.
         //If you click ESCAPE after all the credits are shown it will exit from the screen.
-        public void ShowCredits()
+        public void Show()
         {
             short yInit = 200;
             bool finish = false;

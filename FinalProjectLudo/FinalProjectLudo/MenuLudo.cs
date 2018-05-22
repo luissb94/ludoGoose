@@ -65,11 +65,11 @@ namespace FinalProjectLudo
             
         }
 
+        //Gets the number of the chip the player wants to move.
         public string GetSecondStepValue()
         {
 
             return this.chipToMove;
         }
-
     }
 }

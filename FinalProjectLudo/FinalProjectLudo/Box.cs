@@ -1,5 +1,7 @@
 ﻿//Luis Sellés Blanes
 //V0.01 - Creating box class
+//V0.07 - Finished methods to upload and download from ftp
+//          and method to load data of the arrayboxes from a file.
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.IO;
 
 namespace FinalProjectLudo
 {
-    public struct BoxPropietes
+    public struct BoxProperties
     {
         public int x;
         public int y;
@@ -25,32 +27,14 @@ namespace FinalProjectLudo
         protected string FTPuser = "luisludo";
         protected string FTPpass = "Ef2oo6$0";
 
-        //protected string Color { get; set; }
-        //protected int X;
-        //protected int Y;
         private int Number { get; set; }
-        //private bool isMultipiece { get; set; }
-        //private bool isHouse { get; set; }
-        //private bool isFinishBox { get; set; }
-        //private bool isEmpty { get; set; }
-
         private List<Chip> chips = new List<Chip>();
-        protected BoxPropietes[] arrayBox = new BoxPropietes[104];
-
-        public Box() { }
+        protected BoxProperties[] arrayBox = new BoxProperties[100];
 
 
-        /*
-        public Box(string color, int number, bool isHouse, bool isFinishBox, bool isEmpty)
-        {
-            this.Color = color;
-            this.Number = number;
-            this.isHouse = isHouse;
-            this.isFinishBox = isFinishBox;
+        public Box() {
         }
-        */
-
-
+        
         public List<Chip> Chips
         {
             get { return this.chips; }
@@ -111,8 +95,55 @@ namespace FinalProjectLudo
             file.Close();
 
             string fileToUpload = "files/boxesData.txt";
-            FtpWebRequest ftp = WebRequest.Create(new Uri(string.Format(@"ftp://185.22.92.60/httpdocs/", "127.0.0.1", fileToUpload))) as FtpWebRequest;
+            WebClient ftp = new WebClient();
+
+            ftp.Credentials = new NetworkCredential(FTPuser, FTPpass);
+
+            ftp.UploadFile("ftp://185.22.92.60/httpdocs/boxesData.txt","STOR", fileToUpload);
         }
 
+        //Download file from ftp.
+        public void DownloadFromFtp()
+        {
+
+            string fileToDownload = "files/boxesdownload.txt";
+            WebClient ftp = new WebClient();
+
+            ftp.Credentials = new NetworkCredential(FTPuser, FTPpass);
+
+            ftp.DownloadFile("ftp://185.22.92.60/httpdocs/boxesData.txt", fileToDownload);
+        }
+
+        //This method reads the data from a given file. It's format is
+        //x,y,color,isMultipiece,isHouse,isFinishBox,isEmpty
+        public BoxProperties[] LoadData(string fileName)
+        {
+            StreamReader file = File.OpenText(fileName);
+            string line;
+            string[] lineSplitted;
+            int count = 0;
+
+            do
+            {
+                line = file.ReadLine();
+
+                if (line != null)
+                {
+                    lineSplitted = line.Split(',');
+                    arrayBox[count].x = Convert.ToInt32(lineSplitted[0]);
+                    arrayBox[count].y = Convert.ToInt32(lineSplitted[1]);
+                    arrayBox[count].color = lineSplitted[2];
+                    arrayBox[count].isMultipiece = Convert.ToBoolean(lineSplitted[3]);
+                    arrayBox[count].isHouse = Convert.ToBoolean(lineSplitted[4]);
+                    arrayBox[count].isFinishBox = Convert.ToBoolean(lineSplitted[5]);
+                    arrayBox[count].isEmpty = Convert.ToBoolean(lineSplitted[6]);
+
+                    count++;
+                }
+            } while (line != null);
+
+            file.Close();
+            return this.arrayBox;
+        }
     }
 }

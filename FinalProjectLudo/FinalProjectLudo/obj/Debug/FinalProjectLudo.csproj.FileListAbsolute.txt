@@ -86,3 +86,5 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll4.JPG
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll5.JPG
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll6.JPG
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxesData.txt
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxArrayData.txt

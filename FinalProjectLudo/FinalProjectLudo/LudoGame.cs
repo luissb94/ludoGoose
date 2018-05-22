@@ -1,6 +1,8 @@
 ﻿//Luis Selles Blanes
 //V0.03 -  Creating the Main class of the game Ludo
 //          Here will be the whole code of the game.
+//V0.07 -  Added array of boxes.
+
 using System;
 using Tao.Sdl;
 
@@ -11,10 +13,12 @@ namespace FinalProjectLudo
         protected Image imgLudo, imgDice;
         protected Hardware hardware;
         protected Font font;
-        protected IntPtr textSpace;
+        protected IntPtr textSpace, txtNames, txtDev;
         protected PlayerSelect playSelect;
         protected MenuLudo menu;
         protected Dice dice;
+        protected Box boxes;
+        protected BoxProperties[] arrayBox = new BoxProperties[100];
 
         public LudoGame(Hardware hardware)
         {
@@ -23,27 +27,42 @@ namespace FinalProjectLudo
             this.hardware = hardware;
             this.playSelect = new PlayerSelect(hardware);
             this.menu = new MenuLudo(hardware);
-            this.dice = new Dice();
+            this.dice = new Dice(hardware);
+            this.boxes = new Box();
         }
 
-        public void LudoPlayGame()
+        public void PlayGame()
         {
             bool exit = false;
-
+            string arrayData = "files/boxArrayData.txt";
             playSelect.Show();
-
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            font = new Font("font/fuenteproy.ttf", 12);
+            arrayBox = boxes.LoadData(arrayData);
+            txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Enter the roll: ", red);
             //Main loop of the ludo game. It will show a menu, step by step
             //to show the player hoy to play.
             do
             {
-                int numChip;
+
+                int numChip, rollValue;
                 exit = false;
                 hardware.ClearScreen();
                 hardware.DrawImage(imgLudo);
+                
+                //hardware.WriteText(txtNames, 800, 100);
+
+                //I used this here just to make sure they work.
+                //boxes.UploadToFtp();
+                //boxes.DownloadFromFtp();
+
+
                 hardware.UpdateScreen();
 
-                menu.ShowFirstStep();
-
+                //Commented because of the devRoll.
+                /*menu.ShowFirstStep();
+                
 
                 do
                 {
@@ -89,7 +108,14 @@ namespace FinalProjectLudo
                         hardware.DrawImage(imgDice);
                         hardware.UpdateScreen();
                         break;
-                }
+                }*/
+
+                hardware.WriteText(txtDev, 640, 330);
+                hardware.UpdateScreen();
+               
+
+                rollValue = dice.GetDevRoll();
+                
 
                 menu.ShowSecondStep();
 

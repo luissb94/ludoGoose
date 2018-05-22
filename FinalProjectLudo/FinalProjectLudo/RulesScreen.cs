@@ -25,7 +25,7 @@ namespace FinalProjectLudo
         
         //This method will find the rules.txt, if not found it will display an image of 
         //404 file not found, else it will display the rules.
-        public void ShowRules()
+        public void Show()
         {
             
             bool exitRules = false;

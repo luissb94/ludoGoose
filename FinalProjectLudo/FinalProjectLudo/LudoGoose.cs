@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace FinalProjectLudo
 {
-    class Program
+    class LudoGoose
     {
         static void Main(string[] args)
         {
-            Program game = new Program();
+            LudoGoose game = new LudoGoose();
             
             Hardware hardware = new Hardware(1152, 652, 24, false);
             WelcomeScreen welcome = new WelcomeScreen(hardware);
@@ -30,28 +30,28 @@ namespace FinalProjectLudo
             do
             {
                 hardware.ClearScreen();
-                welcome.ShowWelcomeScreen();
+                welcome.Show();
                 if(!welcome.Exit())
                 {
                     menu.Show();
                     switch(menu.GetChosenGame())
                     {
                         case 1:
-                            ludo.LudoPlayGame();
+                            ludo.PlayGame();
                             break;
                         case 2:
                             playerSelect.Show();
                             break;
                         case 3:
-                            playerSelect.ShowPlayerSelectAgainstIA();
+                            playerSelect.ShowPSAgainstIA();
                             break;
                         case 4:
                             break;
                         case 5:
-                            credits.ShowCredits();
+                            credits.Show();
                             break;
                         case 6:
-                            rules.ShowRules();
+                            rules.Show();
                             break;
                     }
                 }

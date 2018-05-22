@@ -60,7 +60,7 @@
     <Compile Include="MenuScreen.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerSelect.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="LudoGoose.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RulesScreen.cs" />
     <Compile Include="WelcomeScreen.cs" />
@@ -72,6 +72,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="files\boxArrayData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="files\boxesData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="files\credits.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

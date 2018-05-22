@@ -101,7 +101,7 @@ namespace FinalProjectLudo
         }
 
         //This method is only to set player name against IA.
-        public void ShowPlayerSelectAgainstIA()
+        public void ShowPSAgainstIA()
         {
             bool exit = false;
 
