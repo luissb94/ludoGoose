@@ -18,6 +18,8 @@ namespace FinalProjectLudo
         protected bool IsAtFinish { get; set; }
         protected int posChip;
         protected Box box;
+        protected Image imgChip;
+        protected List<Chip> chipList = new List<Chip>();
 
         public Chip(string color, int num_piece,int poschip)
         {
@@ -36,6 +38,16 @@ namespace FinalProjectLudo
         public void SetPosChip(int i)
         {
             posChip = i;
+        }
+        
+        //Loads the data of the chips from a file
+        public List<Chip> LoadChips()
+        {
+            string fileChipData = "files/chipdata.txt";
+
+
+
+            return this.chipList;
         }
     }
 }
