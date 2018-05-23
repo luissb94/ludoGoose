@@ -10,7 +10,7 @@ namespace FinalProjectLudo
         protected IntPtr txtMenu, txtChip;
         protected Hardware hardware;
         protected Font font;
-        protected string chipToMove;
+        protected string chipToMove = "";
 
         public MenuLudo(Hardware hardware)
         {
@@ -38,7 +38,6 @@ namespace FinalProjectLudo
         public void ShowSecondStep()
         {
             char addNumber = ' ';
-            chipToMove = "";
 
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
@@ -54,7 +53,7 @@ namespace FinalProjectLudo
             {
                 addNumber = hardware.ReadNumber();
                 if (addNumber != '!' && addNumber != ' ')
-                    chipToMove += addNumber;
+                    this.chipToMove += addNumber;
 
                 txtChip = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     chipToMove, yellow);
@@ -68,8 +67,17 @@ namespace FinalProjectLudo
         //Gets the number of the chip the player wants to move.
         public string GetSecondStepValue()
         {
-
             return this.chipToMove;
+        }
+
+        public void GetThirdStep()
+        {
+            font = new Font("font/fuenteproy.ttf", 12);
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press escape to skip the turn", red);
+            hardware.WriteText(txtMenu, 640, 430);
+            hardware.UpdateScreen();
         }
     }
 }
