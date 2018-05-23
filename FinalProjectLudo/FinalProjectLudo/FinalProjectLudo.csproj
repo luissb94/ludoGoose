@@ -78,6 +78,9 @@
     <Content Include="files\boxesData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="files\chipdata.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="files\credits.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

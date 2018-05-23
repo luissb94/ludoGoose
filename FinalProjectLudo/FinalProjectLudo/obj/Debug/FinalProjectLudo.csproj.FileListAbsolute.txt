@@ -88,3 +88,8 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\roll6.JPG
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxesData.txt
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxArrayData.txt
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\chipdata.txt
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\fichaRoja1.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\fichaRoja2.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\fichaRoja3.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\fichaRoja4.jpg

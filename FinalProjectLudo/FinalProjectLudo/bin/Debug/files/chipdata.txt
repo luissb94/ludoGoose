@@ -1,0 +1,16 @@
+red,1,true,false,0,img/fichaRoja1.jpg
+red,2,true,false,0,img/fichaRoja1.jpg
+red,3,true,false,0,img/fichaRoja1.jpg
+red,4,true,false,0,img/fichaRoja1.jpg
+blue,1,true,false,0,img/fichaRoja1.jpg
+blue,2,true,false,0,img/fichaRoja1.jpg
+blue,3,true,false,0,img/fichaRoja1.jpg
+blue,4,true,false,0,img/fichaRoja1.jpg
+green,1,true,false,0,img/fichaRoja1.jpg
+green,2,true,false,0,img/fichaRoja1.jpg
+green,3,true,false,0,img/fichaRoja1.jpg
+green,4,true,false,0,img/fichaRoja1.jpg
+yellow,1,true,false,0,img/fichaRoja1.jpg
+yellow,2,true,false,0,img/fichaRoja1.jpg
+yellow,3,true,false,0,img/fichaRoja1.jpg
+yellow,4,true,false,0,img/fichaRoja1.jpg
