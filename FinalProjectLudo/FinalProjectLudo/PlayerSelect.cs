@@ -2,8 +2,13 @@
 //V0.03 - Class to make the players enter their name so it can be shown
 //          on the next image of the game.
 //V0.05 - Made a for to let the users enters his name
+//V0.08 - Added the switch to get the names of the 4 players.
+//          and it's methods to get the data.
+
 using System;
 using Tao.Sdl;
+using System.Collections.Generic;
+
 
 namespace FinalProjectLudo
 {
@@ -13,7 +18,7 @@ namespace FinalProjectLudo
         protected Font font;
         protected Hardware hardware;
         protected Image imgPlayerSelect;
-
+        protected List<Player> players = new List<Player>();
 
         public PlayerSelect(Hardware hardware)
         {
@@ -86,6 +91,23 @@ namespace FinalProjectLudo
 
                 } while (addLetter != '!');
                 
+                //Added switch to get the names of the 4 players.
+                switch(i)
+                {
+                    case 0:
+                        players.Add( new Player(name, "red"));
+                        break;
+                    case 1:
+                        players.Add(new Player(name, "blue"));
+                        break;
+                    case 2:
+                        players.Add(new Player(name, "green"));
+                        break;
+                    case 3:
+                        players.Add(new Player(name, "yellow"));
+                        break;
+                }
+
                 yNames += 100;
             }
 
@@ -130,6 +152,11 @@ namespace FinalProjectLudo
                     exit = true;
                 }
             } while (!exit);
+        }
+        
+        public List<Player> GetPlayerList()
+        {
+            return this.players;
         }
     }
 }
