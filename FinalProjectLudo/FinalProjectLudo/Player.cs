@@ -2,6 +2,7 @@
 //V0.01 -  Creating Player class
 
 using System;
+using System.Collections.Generic;
 
 namespace FinalProjectLudo
 {
@@ -12,7 +13,9 @@ namespace FinalProjectLudo
         protected bool hasWon;
         protected bool lastRoll6;
         protected int count6roll = 0;
-        
+        protected Chip chip;
+        protected List<Chip> playerChips;
+
         public Player(string name, string color)
         {
             this.name = name;
@@ -20,6 +23,8 @@ namespace FinalProjectLudo
             this.hasWon = false;
             this.lastRoll6 = false;
             this.count6roll = 0;
+            this.chip = new Chip();
+            this.playerChips = new List<Chip>();
         }
 
         public string GetName()
@@ -45,6 +50,12 @@ namespace FinalProjectLudo
         public int GetCount6Rolls()
         {
             return this.count6roll;
+        }
+
+        public List<Chip> GetPlayerChip(string color)
+        {
+            playerChips = chip.LoadChips(this.color);
+            return this.playerChips;
         }
     }
 }

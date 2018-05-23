@@ -4,47 +4,91 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace FinalProjectLudo
 {
     class Chip
     {
-        protected string Color { get; set; }
-        protected int Num_piece { get; set; }
-        protected bool IsAtHome { get; set; }
-        protected bool IsAtFinish { get; set; }
+        protected string color;
+        protected int num_piece;
+        protected bool isAtHome;
+        protected bool isAtFinish;
         protected int posChip;
         protected Box box;
         protected Image imgChip;
         protected List<Chip> chipList = new List<Chip>();
 
-        public Chip(string color, int num_piece,int poschip)
+        public Chip() { }
+
+        public Chip(string color, int num_piece,bool isAtHome, bool isAtFinish, int poschip, Image imgChip)
         {
-            this.Color = color;
-            this.Num_piece = num_piece;
+            this.color = color;
+            this.num_piece = num_piece;
             this.posChip = poschip;
-            IsAtFinish = false;
-            IsAtHome = true;
+            this.isAtFinish = isAtFinish;
+            this.isAtHome = isAtHome;
+            this.imgChip = imgChip;
         }
 
+        //Gets the position of the chip
         public int GetPosChip()
         {
             return posChip;
         }
 
+        //Sets the position of the chip
         public void SetPosChip(int i)
         {
             posChip = i;
         }
         
-        //Loads the data of the chips from a file
-        public List<Chip> LoadChips()
+        public string GetColor()
         {
-            string fileChipData = "files/chipdata.txt";
+            return this.color;
+        }
 
+        public int GetNum()
+        {
+            return this.num_piece;
+        }
+
+        //Loads the data of the chips from a file
+        public List<Chip> LoadChips(string color)
+        {
+            try
+            {
+                string fileChipData = "files/chipdata.txt";
+                StreamReader file = File.OpenText(fileChipData);
+                string line;
+                string[] lines;
+                int count = 0;
+
+                do
+                {
+                    line = file.ReadLine();
+                    if(line != null)
+                    {
+                        lines = line.Split(',');
+
+                        if(lines[0] == color)
+                        {
+                            chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]), 
+                                Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
+                                Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35)));
+                        }
+                        count++;
+                    }
+                } while (line != null);
+                file.Close();
+            }
+            catch (Exception e)
+            {
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine("Error: " + e.Message);
+                fileErrorLog.Close();
+            }
+            
 
 
             return this.chipList;
