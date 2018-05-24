@@ -1,6 +1,6 @@
 ﻿//Luis Selles Blanes
 //V0.01 - Creating Chip class
-
+//V0.08 - Added method to load the chips data from file
 
 using System;
 using System.Collections.Generic;
@@ -53,8 +53,13 @@ namespace FinalProjectLudo
             return this.num_piece;
         }
 
+        public bool GetisHome()
+        {
+            return isAtHome;
+        }
+
         //Loads the data of the chips from a file
-        public List<Chip> LoadChips(string color)
+        public List<Chip> Load()
         {
             try
             {
@@ -70,13 +75,10 @@ namespace FinalProjectLudo
                     if(line != null)
                     {
                         lines = line.Split(',');
-
-                        if(lines[0] == color)
-                        {
-                            chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]), 
-                                Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
-                                Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35)));
-                        }
+                        
+                        chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]), 
+                            Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
+                            Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35)));
                         count++;
                     }
                 } while (line != null);
@@ -92,6 +94,11 @@ namespace FinalProjectLudo
 
 
             return this.chipList;
+        }
+
+        public Image GetImg()
+        {
+            return this.imgChip;
         }
     }
 }
