@@ -157,6 +157,25 @@ namespace FinalProjectLudo
             Thread.Sleep(miliseconds);
         }
 
+        // Adapted method to clear the roll if i pass the string "roll" or the chip number
+        // if I pass parameter chip.
+
+        public void Clear(string cleared)
+        {
+            if(cleared == "roll")
+            {
+                Sdl.SDL_Rect source = new Sdl.SDL_Rect(860, 330, screenWidth, screenHeight);
+                Sdl.SDL_FillRect(screen, ref source, 0);
+            }
+            else if (cleared == "chip")
+            {
+                Sdl.SDL_Rect source = new Sdl.SDL_Rect(860, 330, screenWidth, screenHeight);
+                Sdl.SDL_FillRect(screen, ref source, 0);
+            }
+
+            UpdateScreen();
+        }
+
         //This method will return any letter of the alphabet
         public char ReadLetter()
         {
