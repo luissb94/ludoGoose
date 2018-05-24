@@ -52,9 +52,9 @@ namespace FinalProjectLudo
             return this.count6roll;
         }
 
-        public List<Chip> GetPlayerChip(string color)
+        public List<Chip> GetPlayerChip()
         {
-            playerChips = chip.LoadChips(this.color);
+            playerChips = chip.Load();
             return this.playerChips;
         }
     }

@@ -29,7 +29,7 @@ namespace FinalProjectLudo
 
         private int Number { get; set; }
         private List<Chip> chips = new List<Chip>();
-        protected BoxProperties[] arrayBox = new BoxProperties[100];
+        protected BoxProperties[] arrayBox = new BoxProperties[115];
 
 
         public Box() {

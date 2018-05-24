@@ -38,7 +38,7 @@ namespace FinalProjectLudo
         public void ShowSecondStep()
         {
             char addNumber = ' ';
-
+            chipToMove = "";
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0)

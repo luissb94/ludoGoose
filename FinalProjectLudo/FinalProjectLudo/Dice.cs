@@ -11,7 +11,7 @@ namespace FinalProjectLudo
     {
         protected Hardware hardware;
         protected Random rand_num;
-        protected int Number;
+        protected int number;
         protected IntPtr txtRoll;
         protected Font font = new Font("font/fuenteproy.ttf", 12);
 
@@ -29,8 +29,8 @@ namespace FinalProjectLudo
         //Method to get a roll between 1 and 6
         public int GetRollValue()
         {
-            Number = rand_num.Next(1, 7);
-            return Number;
+            number = rand_num.Next(1, 7);
+            return number;
         }
 
         //This method lets the developer gets the roll he wants to
@@ -54,7 +54,9 @@ namespace FinalProjectLudo
 
             } while (addNumber != '!');
 
-            return Number;
+            number = Convert.ToInt32(rollValue);
+
+            return number;
         }
     }
 }
