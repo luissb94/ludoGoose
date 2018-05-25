@@ -12,6 +12,8 @@ namespace FinalProjectLudo
         protected Image imgBack, imgArrow;
         protected int chosenGame = 1;
         protected Hardware hardware;
+        protected IntPtr txtSpace;
+        protected Font font;
 
         public MenuScreen(Hardware hardware)
         {
@@ -19,7 +21,7 @@ namespace FinalProjectLudo
             imgBack.MoveTo(0, 0);
             imgArrow = new Image("img/arrowcool.jpg", 40, 40);
             imgArrow.MoveTo(250, 180);
-
+            font = new Font("font/fuenteproy.ttf", 20);
             this.hardware = hardware;
         }
 
@@ -27,10 +29,16 @@ namespace FinalProjectLudo
         public void Show()
         {
             bool isSpacePressed = false;
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            txtSpace = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press 'SPACE' to continue", red);
+
             do
             {
+
                 hardware.ClearScreen();
                 hardware.DrawImage(imgBack);
+                hardware.WriteText(txtSpace, 200, 150);
                 hardware.DrawImage(imgArrow);
                 hardware.UpdateScreen();
 
@@ -40,12 +48,12 @@ namespace FinalProjectLudo
                 if (keyPress == Hardware.KEY_UP && chosenGame > 1)
                 {
                     chosenGame--;
-                    imgArrow.MoveTo(300, (short)(imgArrow.Y - 75));
+                    imgArrow.MoveTo(250, (short)(imgArrow.Y - 52));
                 }
-                else if (keyPress == Hardware.KEY_DOWN && chosenGame < 6)
+                else if (keyPress == Hardware.KEY_DOWN && chosenGame < 7)
                 {
                     chosenGame++;
-                    imgArrow.MoveTo(300, (short)(imgArrow.Y + 75));
+                    imgArrow.MoveTo(250, (short)(imgArrow.Y + 52));
                 }
                 else if (keyPress == Hardware.KEY_SPACE)
                 {
