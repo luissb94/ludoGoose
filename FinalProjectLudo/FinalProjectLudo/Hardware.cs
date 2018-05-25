@@ -164,12 +164,12 @@ namespace FinalProjectLudo
         {
             if(cleared == "roll")
             {
-                Sdl.SDL_Rect source = new Sdl.SDL_Rect(860, 330, screenWidth, screenHeight);
+                Sdl.SDL_Rect source = new Sdl.SDL_Rect(940, 330, screenWidth, screenHeight);
                 Sdl.SDL_FillRect(screen, ref source, 0);
             }
             else if (cleared == "chip")
             {
-                Sdl.SDL_Rect source = new Sdl.SDL_Rect(860, 330, screenWidth, screenHeight);
+                Sdl.SDL_Rect source = new Sdl.SDL_Rect(1050, 380, 100, 100);
                 Sdl.SDL_FillRect(screen, ref source, 0);
             }
 

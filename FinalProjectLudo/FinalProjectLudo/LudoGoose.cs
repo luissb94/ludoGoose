@@ -26,6 +26,7 @@ namespace FinalProjectLudo
             LudoGame ludo = new LudoGame(hardware);
             PlayerSelect playerSelect = new PlayerSelect(hardware);
             RulesScreen rules = new RulesScreen(hardware);
+            GooseController goose = new GooseController(hardware);
 
             do
             {
@@ -40,17 +41,21 @@ namespace FinalProjectLudo
                             ludo.PlayGame();
                             break;
                         case 2:
-                            playerSelect.Show();
+                            ludo.PlayLimitless();
                             break;
                         case 3:
-                            playerSelect.ShowPSAgainstIA();
+                            ludo.PlayOnline();
                             break;
                         case 4:
+                            ludo.PlayVsIA();
                             break;
                         case 5:
-                            credits.Show();
+                            goose.Play();
                             break;
                         case 6:
+                            credits.Show();
+                            break;
+                        case 7:
                             rules.Show();
                             break;
                     }

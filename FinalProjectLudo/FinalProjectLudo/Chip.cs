@@ -53,6 +53,11 @@ namespace FinalProjectLudo
             return this.num_piece;
         }
 
+        public void SetisHome(bool status)
+        {
+            this.isAtHome = status;
+        }
+
         public bool GetisHome()
         {
             return isAtHome;

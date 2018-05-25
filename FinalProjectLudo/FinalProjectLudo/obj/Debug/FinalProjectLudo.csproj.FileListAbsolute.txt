@@ -89,7 +89,6 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxesData.txt
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxArrayData.txt
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\chipdata.txt
-D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\blueChip1.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\blueChip2.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\blueChip3.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\blueChip4.jpg
@@ -105,3 +104,7 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\yellowChip2.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\yellowChip3.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\yellowChip4.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\blueChip1.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\gooseBoard.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxArrayDataLimitLess.txt
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\ludoLimitless.jpg

@@ -49,7 +49,7 @@ namespace FinalProjectLudo
 
                 txtRoll = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     rollValue, yellow);
-                hardware.WriteText(txtRoll, 860, 330);
+                hardware.WriteText(txtRoll, 950, 330);
                 hardware.UpdateScreen();
 
             } while (addNumber != '!');

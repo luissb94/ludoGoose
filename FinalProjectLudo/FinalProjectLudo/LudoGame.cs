@@ -15,22 +15,27 @@ namespace FinalProjectLudo
 {
     class LudoGame
     {
-        protected Image imgLudo, imgDice;
+        protected Image imgLudo, imgDice, imgLudoLL;
         protected Hardware hardware;
         protected Font font;
-        protected IntPtr textSpace, txtNames, txtDev, txtChips;
+        protected IntPtr textSpace, txtNames, txtDev, txtChips, txtChipsOut;
         protected PlayerSelect playSelect;
         protected MenuLudo menu;
         protected Dice dice;
         protected Box boxes;
         protected Chip chip;
         protected BoxProperties[] arrayBox = new BoxProperties[100];
+        protected BoxProperties[] arrayBoxLL = new BoxProperties[85];
         protected List<Chip> chipslist = new List<Chip>();
+        protected List<Player> player = new List<Player>();
+        protected int turn = 4;
 
         public LudoGame(Hardware hardware)
         {
             imgLudo = new Image("img/ludoBoard.jpg", 600, 600);
             imgLudo.MoveTo(0, 0);
+            imgLudoLL = new Image("img/ludoLimitless.jpg", 600, 600);
+            imgLudoLL.MoveTo(0, 0);
             this.hardware = hardware;
             this.playSelect = new PlayerSelect(hardware);
             this.menu = new MenuLudo(hardware);
@@ -38,6 +43,7 @@ namespace FinalProjectLudo
             this.boxes = new Box();
             this.chip = new Chip();
             this.chipslist = chip.Load();
+            this.player = playSelect.GetPlayerList();
         }
 
         public void DisplayChips()
@@ -52,7 +58,7 @@ namespace FinalProjectLudo
             }
         }
 
-        public void MoveChip(string color, int num, int positionsToMove)
+        public void MoveChip(string color, int num, int rolledValue, ref int turn)
         {
             foreach (Chip chip in chipslist)
             {
@@ -64,28 +70,51 @@ namespace FinalProjectLudo
                     switch (color)
                     {
                         case "red":
-                            if (chip.GetisHome() && positionsToMove == 5)
+                            //If the selected chip is at home and rolls 5.
+                            //The chips gets out of home and add 1 to player's number
+                            //of chips out
+                            if (chip.GetisHome() && rolledValue == 5)
                             {
+                                player[turn].SetChipsOut();
                                 chip.SetPosChip(39);
+                                chip.SetisHome(false);
                             }
+                            //If chip is at home and rolls anything that is not 5
+                            //the player repeats the turn because can't get chip out
+                            //unless he gets a 5.
+                            else if (chip.GetisHome() && rolledValue != 5)
+                                player[turn].SetRepeatTurn(true);
+
                             break;
                         case "blue":
-                            if (chip.GetisHome() && positionsToMove == 5)
+                            if (chip.GetisHome() && rolledValue == 5)
                             {
+                                player[turn].SetChipsOut();
                                 chip.SetPosChip(22);
+                                chip.SetisHome(false);
                             }
+                            else if (chip.GetisHome() && rolledValue != 5)
+                                player[turn].SetRepeatTurn(true);
                             break;
                         case "green":
-                            if (chip.GetisHome() && positionsToMove == 5)
+                            if (chip.GetisHome() && rolledValue == 5)
                             {
+                                player[turn].SetChipsOut();
                                 chip.SetPosChip(56);
+                                chip.SetisHome(false);
                             }
+                            else if (chip.GetisHome() && rolledValue != 5)
+                                player[turn].SetRepeatTurn(true);
                             break;
                         case "yellow":
-                            if (chip.GetisHome() && positionsToMove == 5)
+                            if (chip.GetisHome() && rolledValue == 5)
                             {
+                                player[turn].SetChipsOut();
                                 chip.SetPosChip(5);
+                                chip.SetisHome(false);
                             }
+                            else if (chip.GetisHome() && rolledValue != 5)
+                                player[turn].SetRepeatTurn(true);
                             break;
                     }
                 }
@@ -95,8 +124,6 @@ namespace FinalProjectLudo
 
         public void PlayGame()
         {
-            List<Player> player = new List<Player>();
-            player = playSelect.GetPlayerList();
             short yInitchip;
             bool exit = false;
             string arrayData = "files/boxArrayData.txt";
@@ -109,120 +136,241 @@ namespace FinalProjectLudo
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             font = new Font("font/fuenteproy.ttf", 12);
             txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Enter the roll: ", red);
+                    "Enter the roll 1 to 68: ", red);
+
+            
             arrayBox = boxes.LoadData(arrayData);
             int chipToMove;
-
-            do
+            
+                
+            //Main loop of the ludo game. It will show a menu, step by step
+            //to show the player hoy to play.
+            for(int i = 0; i < turn; i++)
             {
+                exit = false;
+                yInitchip = 40;
+                //1 - Shows img background, writes the turn and the name of the player
+                //      and his chips.
+                txtNames = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Turn:  " + player[i].GetName() + "            Color: " +
+                        player[i].GetColor(), red);
+                txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                "Chips out: " + player[i].GetChipsOut(), yellow);
+
+                int numChip, rollValue;
+
+                //Draw the 16 chips in their houses.
+                DisplayChips();
+
+                hardware.WriteText(txtNames, 650, 20);
+                hardware.WriteText(txtChipsOut, 650, 40);
+                hardware.UpdateScreen();
+
+                //Commented because of the devRoll.
+                /*menu.ShowFirstStep();
+
+                do
+                {
+                    //Repeat until press 1
+                } while (hardware.KeyPressed() != Hardware.KEY_1);
+
+                //Shows the image of the rollvalue.
+                switch(dice.GetRollValue())
+                {
+                    case 1:
+                        imgDice = new Image("img/roll1.jpg", 156, 154);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                    case 2:
+                        imgDice = new Image("img/roll2.jpg", 143, 142);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                    case 3:
+                        imgDice = new Image("img/roll3.jpg", 143, 142);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                    case 4:
+                        imgDice = new Image("img/roll4.jpg", 143, 142);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                    case 5:
+                        imgDice = new Image("img/roll5.jpg", 143, 142);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                    case 6:
+                        imgDice = new Image("img/roll6.jpg", 143, 142);
+                        imgDice.MoveTo(680, 50);
+                        hardware.DrawImage(imgDice);
+                        hardware.UpdateScreen();
+                        break;
+                }*/
+
+                hardware.WriteText(txtDev, 640, 330);
+                hardware.UpdateScreen();
+
+                //Developer roll.
+                do
+                {
+                    hardware.Clear("roll");
+                    rollValue = dice.GetDevRoll();
+                } while (rollValue < 1 || rollValue > 68);
+
 
                 
-                //Main loop of the ludo game. It will show a menu, step by step
-                //to show the player hoy to play.
-                foreach (Player p in player)
+
+                do
                 {
-                    exit = false;
-                    yInitchip = 40;
-                    //1 - Shows img background, writes the turn and the name of the player
-                    //      and his chips.
-                    txtNames = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                        "Turn:  " + p.GetName() + "            Color: " + p.GetColor(), red);
-                    int numChip, rollValue;
-
-                    //Draw the 16 chips in their houses.
-                    DisplayChips();
-
-                    hardware.WriteText(txtNames, 650, 20);
-
-                    hardware.UpdateScreen();
-
-                    //Commented because of the devRoll.
-                    /*menu.ShowFirstStep();
-
-                    do
-                    {
-                        //Repeat until press 1
-                    } while (hardware.KeyPressed() != Hardware.KEY_1);
-
-                    //Shows the image of the rollvalue.
-                    switch(dice.GetRollValue())
-                    {
-                        case 1:
-                            imgDice = new Image("img/roll1.jpg", 156, 154);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                        case 2:
-                            imgDice = new Image("img/roll2.jpg", 143, 142);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                        case 3:
-                            imgDice = new Image("img/roll3.jpg", 143, 142);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                        case 4:
-                            imgDice = new Image("img/roll4.jpg", 143, 142);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                        case 5:
-                            imgDice = new Image("img/roll5.jpg", 143, 142);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                        case 6:
-                            imgDice = new Image("img/roll6.jpg", 143, 142);
-                            imgDice.MoveTo(680, 50);
-                            hardware.DrawImage(imgDice);
-                            hardware.UpdateScreen();
-                            break;
-                    }*/
-
-                    hardware.WriteText(txtDev, 640, 330);
-                    hardware.UpdateScreen();
-
-                    //Developer roll.
-                    do
-                    {
-                        hardware.Clear("roll");
-                        rollValue = dice.GetDevRoll();
-                    } while (rollValue < 1  || rollValue > 68);
-                    
-
                     //The user enters the chip he wants to move.
                     menu.ShowSecondStep();
 
-                    do
-                    {
-                        hardware.Clear("chip");
-                        chipToMove = Convert.ToInt32(menu.GetSecondStepValue());
-                    } while (chipToMove > 1 && chipToMove < 4);
+                    hardware.Clear("chip");
+                    chipToMove = Convert.ToInt32(menu.GetSecondStepValue());
+                } while (chipToMove < 1 || chipToMove > 4);
 
 
-                    //Here will be the move.
-                    MoveChip(p.GetColor(), chipToMove, rollValue);
+                //Here will be the move.
+                MoveChip(player[i].GetColor(), chipToMove, rollValue, ref i);
 
-                    //User must press escape to skip the turn
-                    menu.GetThirdStep();
+                //User must press escape to skip the turn
+                menu.GetThirdStep();
 
-                    do
-                    {
-                        if (hardware.KeyPressed() == Hardware.KEY_ESC)
-                        {
-                            exit = true;
-                        }
-                    } while (!exit && !p.GetWin());
+
+                if (player[i].GetWin())
+                {
+                    i = turn;
                 }
+                else if (i == 3 && !player[i].GetWin())
+                {
+                    i = -1;
+                }
+                else if (player[i].GetRepeatTurn())
+                {
+                    i--;
+                    menu.GetRepeatText();
+                    player[i].SetRepeatTurn(false);
+                }
+                    
 
-            } while (!exit);
+                do
+                {
+                    if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                    {
+                        exit = true;
+                    }
+                } while (!exit);
+            }
             
+        }
+
+        public void PlayLimitless()
+        {
+            short yInitchip;
+            bool exit = false;
+            string arrayData = "files/boxArrayDataLimitless.txt";
+            playSelect.Show();
+
+            //Define colors, roll, chips variable values;
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
+            Sdl.SDL_Color green = new Sdl.SDL_Color(0, 255, 0);
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+            font = new Font("font/fuenteproy.ttf", 12);
+            txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Enter the roll 1 to 68: ", red);
+            
+            int chipToMove;
+
+            hardware.ClearScreen();
+            hardware.DrawImage(imgLudoLL);
+
+            hardware.UpdateScreen();
+            
+            do
+            {
+                if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                {
+                    exit = true;
+                }
+            } while (!exit);
+
+        }
+
+        public void PlayOnline()
+        {
+            bool exit = false;
+
+            short yInitchip;
+            string arrayData = "files/boxArrayDataLimitless.txt";
+            playSelect.Show();
+
+            //Define colors, roll, chips variable values;
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
+            Sdl.SDL_Color green = new Sdl.SDL_Color(0, 255, 0);
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+            font = new Font("font/fuenteproy.ttf", 12);
+            txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Enter the roll 1 to 68: ", red);
+
+            int chipToMove;
+
+            hardware.ClearScreen();
+            hardware.DrawImage(imgLudo);
+
+            hardware.UpdateScreen();
+
+            do
+            {
+                if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                {
+                    exit = true;
+                }
+            } while (!exit);
+        }
+
+
+        public void PlayVsIA()
+        {
+            bool exit = false;
+
+            short yInitchip;
+            string arrayData = "files/boxArrayDataLimitless.txt";
+
+            playSelect.ShowPSAgainstIA();
+
+            //Define colors, roll, chips variable values;
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
+            Sdl.SDL_Color green = new Sdl.SDL_Color(0, 255, 0);
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+            font = new Font("font/fuenteproy.ttf", 12);
+            txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Enter the roll 1 to 68: ", red);
+
+            int chipToMove;
+
+            hardware.ClearScreen();
+            hardware.DrawImage(imgLudo);
+
+            hardware.UpdateScreen();
+
+            do
+            {
+                if (hardware.KeyPressed() == Hardware.KEY_ESC)
+                {
+                    exit = true;
+                }
+            } while (!exit);
         }
     }
 }
