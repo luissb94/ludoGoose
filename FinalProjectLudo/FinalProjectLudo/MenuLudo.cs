@@ -41,8 +41,7 @@ namespace FinalProjectLudo
             chipToMove = "";
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
-            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0)
-                ;
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Enter chip number to move: ", red);
 
@@ -77,6 +76,18 @@ namespace FinalProjectLudo
             txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Press escape to skip the turn", red);
             hardware.WriteText(txtMenu, 640, 430);
+            hardware.UpdateScreen();
+        }
+
+        public void GetRepeatText()
+        {
+            font = new Font("font/fuenteproy.ttf", 12);
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+            IntPtr txtRepeat;
+            txtRepeat = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "You have to REPEAT your turn!: ", yellow);
+
+            hardware.WriteText(txtRepeat, 640, 550);
             hardware.UpdateScreen();
         }
     }
