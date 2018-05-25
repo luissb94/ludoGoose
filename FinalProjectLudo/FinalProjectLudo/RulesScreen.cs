@@ -82,14 +82,14 @@ namespace FinalProjectLudo
                         }
 
                         hardware.UpdateScreen();
-
+                        
                         do
                         {
                             if (hardware.KeyPressed() == Hardware.KEY_ESC)
                             {
                                 exitRules = true;
                             }
-
+                            /*
                             if (hardware.KeyPressed() == Hardware.KEY_UP && countRulesMin > 0)
                             {
                                 countRulesMin--;
@@ -101,7 +101,7 @@ namespace FinalProjectLudo
                             {
                                 countRulesMin++;
                                 yInit = 200;
-                            }
+                            }*/
                         } while (!exitRules || hardware.KeyPressed() == 
                             Hardware.KEY_DOWN || hardware.KeyPressed() == Hardware.KEY_UP);
 

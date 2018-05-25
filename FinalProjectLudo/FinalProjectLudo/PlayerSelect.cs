@@ -14,7 +14,8 @@ namespace FinalProjectLudo
 {
     class PlayerSelect
     {
-        protected IntPtr textPlayer1, textPlayer2, textPlayer3, textPlayer4,choosePlayer, txtName;
+        protected IntPtr textPlayer1, textPlayer2, textPlayer3, textPlayer4,choosePlayer, 
+            txtName, txtExit;
         protected Font font;
         protected Hardware hardware;
         protected Image imgPlayerSelect;
@@ -113,6 +114,12 @@ namespace FinalProjectLudo
 
             exit = false;
 
+            txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press Enter to play!", black);
+
+            hardware.WriteText(txtExit, 350, 600);
+            hardware.UpdateScreen();
+
             do
             {
                 if (hardware.KeyPressed() == Hardware.KEY_ENTER)
@@ -124,6 +131,67 @@ namespace FinalProjectLudo
 
         //This method is only to set player name against IA.
         public void ShowPSAgainstIA()
+        {
+            bool exit = false;
+            string name = "";
+            char addLetter = ' ';
+            font = new Font("font/fuenteproy.ttf", 20);
+            Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
+            Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
+
+            textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Name player one: ", red);
+
+            choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "ENTER YOUR NAMES:", black);
+
+            hardware.ClearScreen();
+            hardware.DrawImage(imgPlayerSelect);
+            hardware.WriteText(textPlayer1, 200, 200);
+            hardware.WriteText(choosePlayer, 370, 50);
+
+            hardware.UpdateScreen();
+
+            
+            name = "";
+            do
+            {
+                addLetter = hardware.ReadLetter();
+
+                if (addLetter != '!')
+                    name += addLetter;
+
+                txtName = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                name, black);
+                hardware.WriteText(txtName, 700, 200);
+                hardware.UpdateScreen();
+
+
+            } while (addLetter != '!');
+            
+            
+
+            txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press Enter to play!", black);
+
+            hardware.WriteText(txtExit, 350, 600);
+            hardware.UpdateScreen();
+
+            do
+            {
+                if (hardware.KeyPressed() == Hardware.KEY_ENTER)
+                {
+                    exit = true;
+                }
+            } while (!exit);
+        }
+        
+        public List<Player> GetPlayerList()
+        {
+            return this.players;
+        }
+
+        public void ShowPSOnline()
         {
             bool exit = false;
 
@@ -152,11 +220,6 @@ namespace FinalProjectLudo
                     exit = true;
                 }
             } while (!exit);
-        }
-        
-        public List<Player> GetPlayerList()
-        {
-            return this.players;
         }
     }
 }
