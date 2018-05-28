@@ -209,15 +209,15 @@ namespace FinalProjectLudo
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
                 fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: The path is too long");
+                    " - Error: Box.SaveData - The path is too long");
                 fileErrorLog.Close();
             }
             catch (FileNotFoundException)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") + 
-                    " - Error: The file is not found");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.SaveData -  The file is not found");
                 fileErrorLog.Close();
             }
             catch (IOException e)
@@ -225,15 +225,15 @@ namespace FinalProjectLudo
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
                 fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: " + e.Message);
+                    " - Error: Box.SaveData -  " + e.Message);
                 fileErrorLog.Close();
             }
             catch (Exception e)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") + 
-                    " - Error: " + e.Message);
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.SaveData -  " + e.Message);
                 fileErrorLog.Close();
             }
         }
