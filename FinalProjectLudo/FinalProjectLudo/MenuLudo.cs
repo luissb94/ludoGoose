@@ -51,7 +51,7 @@ namespace FinalProjectLudo
             do
             {
                 addNumber = hardware.ReadNumber();
-                if (addNumber != '!' && addNumber != ' ')
+                if (addNumber != '!' && addNumber != ' ' && addNumber != '?')
                     this.chipToMove += addNumber;
 
                 txtChip = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
@@ -88,6 +88,18 @@ namespace FinalProjectLudo
                     "You have to REPEAT your turn!: ", yellow);
 
             hardware.WriteText(txtRepeat, 640, 550);
+            hardware.UpdateScreen();
+        }
+
+        public void GetErrorChip()
+        {
+            font = new Font("font/fuenteproy.ttf", 12);
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+            IntPtr txtError;
+            txtError = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Wrong chip number: ", yellow);
+
+            hardware.WriteText(txtError, 640, 550);
             hardware.UpdateScreen();
         }
     }

@@ -48,13 +48,36 @@ namespace FinalProjectLudo
 
         public void DisplayChips()
         {
+            int numchip, numchip2;
+            string colorchip, colorchip2;
+
             hardware.ClearScreen();
             hardware.DrawImage(imgLudo);
 
             for (int i = 0; i < 16; i++)
+            //for (int i = 0; i < 116; i++)
             {
                 hardware.DrawSprite(chipslist[i].GetImg(),(short) arrayBox[chipslist[i].GetPosChip() - 1].x,
                    (short) arrayBox[chipslist[i].GetPosChip() - 1].y, 0, 0, 25,25);
+                /*numchip = Convert.ToInt32(arrayBox[i].chipInside.Substring(0, 1));
+                colorchip = arrayBox[i].chipInside.Substring(1);
+
+                if (numchip != 0 && colorchip != "")
+                {
+                    hardware.DrawSprite(chipslist[i].GetImg(), 
+                        (short)arrayBox[chipslist[i].GetPosChip() - 1].x,
+                        (short)arrayBox[chipslist[i].GetPosChip() - 1].y, 0, 0, 25, 25);
+                }
+
+                numchip = Convert.ToInt32(arrayBox[i].chipInside2.Substring(0, 1));
+                colorchip = arrayBox[i].chipInside2.Substring(1);
+
+                if (numchip != 0 && colorchip != "")
+                {
+                    hardware.DrawSprite(chipslist[i].GetImg(),
+                        (short)arrayBox[chipslist[i].GetPosChip() - 1].x,
+                        (short)arrayBox[chipslist[i].GetPosChip() - 1].y, 0, 0, 25, 25);
+                }*/
             }
         }
 
@@ -66,55 +89,69 @@ namespace FinalProjectLudo
                 // and chip number.
                 if (chip.GetColor() == color && chip.GetNum() == num)
                 {
-                    //Each colour starts in differents boxes.
+                    //Switch for every color.
                     switch (color)
                     {
                         case "red":
-                            //If the selected chip is at home and rolls 5.
-                            //The chips gets out of home and add 1 to player's number
-                            //of chips out
-                            if (chip.GetisHome() && rolledValue == 5)
+                            //Switch for every value instead of 'if'.
+                            switch(rolledValue)
                             {
-                                player[turn].SetChipsOut();
-                                chip.SetPosChip(39);
-                                chip.SetisHome(false);
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    //If the selected chip is at home and rolls 5.
+                                    //The chips gets out of home and add 1 to player's number
+                                    //of chips out.
+                                    if (chip.GetisHome())
+                                    {
+                                        player[turn].SetChipsOut();
+                                        arrayBox[chip.GetPosChip()].chipInside = "";
+                                        chip.SetPosChip(39);
+                                        arrayBox[chip.GetPosChip()].chipInside = chip.GetNum() + chip.GetColor();
+                                        chip.SetisHome(false);
+
+                                    }
+                                    break;
+                                case 6:
+                                    break;
                             }
-                            //If chip is at home and rolls anything that is not 5
-                            //the player repeats the turn because can't get chip out
-                            //unless he gets a 5.
-                            else if (chip.GetisHome() && rolledValue != 5)
-                                player[turn].SetRepeatTurn(true);
 
                             break;
                         case "blue":
                             if (chip.GetisHome() && rolledValue == 5)
                             {
                                 player[turn].SetChipsOut();
+                                arrayBox[chip.GetPosChip()].chipInside = "";
                                 chip.SetPosChip(22);
+                                arrayBox[chip.GetPosChip()].chipInside = chip.GetNum() + chip.GetColor();
                                 chip.SetisHome(false);
                             }
-                            else if (chip.GetisHome() && rolledValue != 5)
-                                player[turn].SetRepeatTurn(true);
                             break;
                         case "green":
                             if (chip.GetisHome() && rolledValue == 5)
                             {
                                 player[turn].SetChipsOut();
+                                arrayBox[chip.GetPosChip()].chipInside = "";
                                 chip.SetPosChip(56);
+                                arrayBox[chip.GetPosChip()].chipInside = chip.GetNum() + chip.GetColor();
                                 chip.SetisHome(false);
                             }
-                            else if (chip.GetisHome() && rolledValue != 5)
-                                player[turn].SetRepeatTurn(true);
                             break;
                         case "yellow":
                             if (chip.GetisHome() && rolledValue == 5)
                             {
                                 player[turn].SetChipsOut();
+                                arrayBox[chip.GetPosChip()].chipInside = "";
                                 chip.SetPosChip(5);
+                                arrayBox[chip.GetPosChip()].chipInside = chip.GetNum() + chip.GetColor();
                                 chip.SetisHome(false);
                             }
-                            else if (chip.GetisHome() && rolledValue != 5)
-                                player[turn].SetRepeatTurn(true);
                             break;
                     }
                 }
@@ -157,7 +194,7 @@ namespace FinalProjectLudo
                 txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                 "Chips out: " + player[i].GetChipsOut(), yellow);
 
-                int numChip, rollValue;
+                int rollValue;
 
                 //Draw the 16 chips in their houses.
                 DisplayChips();
@@ -225,16 +262,19 @@ namespace FinalProjectLudo
                     rollValue = dice.GetDevRoll();
                 } while (rollValue < 1 || rollValue > 68);
 
-
                 
-
                 do
                 {
+                    
                     //The user enters the chip he wants to move.
                     menu.ShowSecondStep();
 
                     hardware.Clear("chip");
                     chipToMove = Convert.ToInt32(menu.GetSecondStepValue());
+                    if(chipToMove < 1 || chipToMove > 4)
+                    {
+                        menu.GetErrorChip();
+                    }
                 } while (chipToMove < 1 || chipToMove > 4);
 
 
@@ -249,17 +289,18 @@ namespace FinalProjectLudo
                 {
                     i = turn;
                 }
-                else if (i == 3 && !player[i].GetWin())
+                else if (i == playSelect.GetNumPlayers() - 1 && !player[i].GetWin())
                 {
                     i = -1;
                 }
                 else if (player[i].GetRepeatTurn())
                 {
+                    player[i].SetRepeatTurn(false);
                     i--;
                     menu.GetRepeatText();
-                    player[i].SetRepeatTurn(false);
                 }
-                    
+
+                boxes.SaveData(arrayBox);
 
                 do
                 {
@@ -311,6 +352,7 @@ namespace FinalProjectLudo
 
             short yInitchip;
             string arrayData = "files/boxArrayDataLimitless.txt";
+    
             playSelect.Show();
 
             //Define colors, roll, chips variable values;
