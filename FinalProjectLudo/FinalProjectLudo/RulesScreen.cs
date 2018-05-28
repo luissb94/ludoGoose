@@ -109,21 +109,37 @@ namespace FinalProjectLudo
                 }
                 
             }
-            catch(PathTooLongException)
+            catch (PathTooLongException)
             {
-                Console.WriteLine("Path is too long.");
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: The path is too long");
+                fileErrorLog.Close();
             }
-            catch(FileNotFoundException)
+            catch (FileNotFoundException)
             {
-                Console.WriteLine("File was not Found");
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: The file is not found");
+                fileErrorLog.Close();
             }
-            catch(IOException e)
+            catch (IOException e)
             {
-                Console.WriteLine("I/O error .. " + e.Message);
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: " + e.Message);
+                fileErrorLog.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("Error ..." + e.Message);
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: " + e.Message);
+                fileErrorLog.Close();
             }
         }
     }

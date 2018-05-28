@@ -89,13 +89,39 @@ namespace FinalProjectLudo
                 } while (line != null);
                 file.Close();
             }
-            catch (Exception e)
+            catch (PathTooLongException)
             {
+                DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine("Error: " + e.Message);
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: The path of LoadChips");
                 fileErrorLog.Close();
             }
-            
+            catch (FileNotFoundException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: The file of LoadChips is not found");
+                fileErrorLog.Close();
+            }
+            catch (IOException e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: LoadChips - " + e.Message);
+                fileErrorLog.Close();
+            }
+            catch (Exception e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: LoadChips - " + e.Message);
+                fileErrorLog.Close();
+            }
+
 
 
             return this.chipList;

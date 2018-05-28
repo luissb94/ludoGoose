@@ -14,11 +14,14 @@ namespace FinalProjectLudo
     {
         public int x;
         public int y;
+        public int x2;
+        public int y2;
         public string color;
         public bool isMultipiece;
         public bool isHouse;
         public bool isFinishBox;
         public bool isEmpty;
+        public string chipInside;
     }
 
 
@@ -87,7 +90,8 @@ namespace FinalProjectLudo
 
             for(int i = 0; i < arrayBox.Length; i++)
             {
-                file.WriteLine(arrayBox[i].x + "," + arrayBox[i].y + "," + arrayBox[i].color
+                file.WriteLine(arrayBox[i].x + "," + arrayBox[i].y + ","
+                    + arrayBox[i].x2 + "," + arrayBox[i].y2 + "," + arrayBox[i].color
                     + "," + arrayBox[i].isMultipiece + "," + arrayBox[i].isHouse
                     + "," + arrayBox[i].isFinishBox + "," + arrayBox[i].isEmpty);
             }
@@ -118,32 +122,120 @@ namespace FinalProjectLudo
         //x,y,color,isMultipiece,isHouse,isFinishBox,isEmpty
         public BoxProperties[] LoadData(string fileName)
         {
-            StreamReader file = File.OpenText(fileName);
-            string line;
-            string[] lineSplitted;
-            int count = 0;
-
-            do
+            try
             {
-                line = file.ReadLine();
+                StreamReader file = File.OpenText(fileName);
+                string line;
+                string[] lineSplitted;
+                int count = 0;
 
-                if (line != null)
+                do
                 {
-                    lineSplitted = line.Split(',');
-                    arrayBox[count].x = Convert.ToInt32(lineSplitted[0]);
-                    arrayBox[count].y = Convert.ToInt32(lineSplitted[1]);
-                    arrayBox[count].color = lineSplitted[2];
-                    arrayBox[count].isMultipiece = Convert.ToBoolean(lineSplitted[3]);
-                    arrayBox[count].isHouse = Convert.ToBoolean(lineSplitted[4]);
-                    arrayBox[count].isFinishBox = Convert.ToBoolean(lineSplitted[5]);
-                    arrayBox[count].isEmpty = Convert.ToBoolean(lineSplitted[6]);
+                    line = file.ReadLine();
 
-                    count++;
-                }
-            } while (line != null);
+                    if (line != null)
+                    {
+                        lineSplitted = line.Split(',');
+                        arrayBox[count].x = Convert.ToInt32(lineSplitted[0]);
+                        arrayBox[count].y = Convert.ToInt32(lineSplitted[1]);
+                        arrayBox[count].x2 = Convert.ToInt32(lineSplitted[2]);
+                        arrayBox[count].y2 = Convert.ToInt32(lineSplitted[3]);
+                        arrayBox[count].color = lineSplitted[4];
+                        arrayBox[count].isMultipiece = Convert.ToBoolean(lineSplitted[5]);
+                        arrayBox[count].isHouse = Convert.ToBoolean(lineSplitted[6]);
+                        arrayBox[count].isFinishBox = Convert.ToBoolean(lineSplitted[7]);
+                        arrayBox[count].isEmpty = Convert.ToBoolean(lineSplitted[8]);
+                        arrayBox[count].chipInside = lineSplitted[9];
 
-            file.Close();
+                        count++;
+                    }
+                } while (line != null);
+
+                file.Close();
+            }
+            catch (PathTooLongException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") + 
+                    " - Error: Box.LoadData - The path is too long");
+                fileErrorLog.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadData - The file is not found");
+                fileErrorLog.Close();
+            }
+            catch (IOException e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadData - " + e.Message);
+                fileErrorLog.Close();
+            }
+            catch (Exception e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadData -" + e.Message);
+                fileErrorLog.Close();
+            }
             return this.arrayBox;
+        }
+
+        //Method to save data
+        public void SaveData(BoxProperties[] boxes)
+        {
+            try
+            {
+                StreamWriter outputFile = File.CreateText("files/boxesData.txt");
+
+                for(int i = 0; i < boxes.Length; i++)
+                {
+                    outputFile.WriteLine(boxes[i].x + "," + boxes[i].y + "," + boxes[i].x2 +
+                        "," + boxes[i].y2 + "," + boxes[i].color + "," + boxes[i].isMultipiece +
+                        "," + boxes[i].isHouse + "," + boxes[i].isFinishBox + "," +
+                        boxes[i].isEmpty + "," + boxes[i].chipInside );
+                }
+                outputFile.Close();
+            }
+            catch (PathTooLongException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: The path is too long");
+                fileErrorLog.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") + 
+                    " - Error: The file is not found");
+                fileErrorLog.Close();
+            }
+            catch (IOException e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: " + e.Message);
+                fileErrorLog.Close();
+            }
+            catch (Exception e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") + 
+                    " - Error: " + e.Message);
+                fileErrorLog.Close();
+            }
         }
     }
 }
