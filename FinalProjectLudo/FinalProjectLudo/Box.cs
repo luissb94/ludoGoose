@@ -2,6 +2,7 @@
 //V0.01 - Creating box class
 //V0.07 - Finished methods to upload and download from ftp
 //          and method to load data of the arrayboxes from a file.
+//V0.11 - Modified file access methods and added new variables to struct
 
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace FinalProjectLudo
         public bool isFinishBox;
         public bool isEmpty;
         public string chipInside;
+        public string chipInside2;
     }
 
 
@@ -65,6 +67,19 @@ namespace FinalProjectLudo
 
         }
 
+        //Gets which chip is in the 1nd box
+        public string GetPos1(int i)
+        {
+
+            return arrayBox[i].chipInside;
+        }
+
+        //Gets which chip is in the 2nd box
+        public string GetPos2(int i)
+        {
+
+            return arrayBox[i].chipInside2;
+        }
 
         //Method to add a Chip into the box
         public void AddChip(Chip chip)
@@ -146,6 +161,7 @@ namespace FinalProjectLudo
                         arrayBox[count].isFinishBox = Convert.ToBoolean(lineSplitted[7]);
                         arrayBox[count].isEmpty = Convert.ToBoolean(lineSplitted[8]);
                         arrayBox[count].chipInside = lineSplitted[9];
+                        arrayBox[count].chipInside2 = lineSplitted[10];
 
                         count++;
                     }
@@ -200,7 +216,7 @@ namespace FinalProjectLudo
                     outputFile.WriteLine(boxes[i].x + "," + boxes[i].y + "," + boxes[i].x2 +
                         "," + boxes[i].y2 + "," + boxes[i].color + "," + boxes[i].isMultipiece +
                         "," + boxes[i].isHouse + "," + boxes[i].isFinishBox + "," +
-                        boxes[i].isEmpty + "," + boxes[i].chipInside );
+                        boxes[i].isEmpty + "," + boxes[i].chipInside + "," + boxes[i].chipInside2);
                 }
                 outputFile.Close();
             }

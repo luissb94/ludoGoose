@@ -348,6 +348,9 @@ namespace FinalProjectLudo
                 case KEY_0:
                     number = '0';
                     break;
+                default:
+                    number = '?';
+                    break;
             }
 
             return number;

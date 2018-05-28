@@ -40,7 +40,7 @@ namespace FinalProjectLudo
         //Sets the position of the chip
         public void SetPosChip(int i)
         {
-            posChip = i;
+            posChip = i + 1;
         }
         
         public string GetColor()
@@ -61,6 +61,11 @@ namespace FinalProjectLudo
         public bool GetisHome()
         {
             return isAtHome;
+        }
+
+        public Chip GetChip(string color, int num)
+        {
+            return Chip;
         }
 
         //Loads the data of the chips from a file

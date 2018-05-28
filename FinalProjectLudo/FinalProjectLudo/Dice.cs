@@ -44,7 +44,7 @@ namespace FinalProjectLudo
             do
             {
                 addNumber = hardware.ReadNumber();
-                if (addNumber != '!' && addNumber != ' ')
+                if (addNumber != '!' && addNumber != ' ' && addNumber != '?')
                     rollValue += addNumber;
 
                 txtRoll = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
@@ -54,7 +54,8 @@ namespace FinalProjectLudo
 
             } while (addNumber != '!');
 
-            number = Convert.ToInt32(rollValue);
+            if(rollValue != "")
+                number = Convert.ToInt32(rollValue);
 
             return number;
         }
