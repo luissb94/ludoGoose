@@ -4,6 +4,7 @@
 //V0.05 - Made a for to let the users enters his name
 //V0.08 - Added the switch to get the names of the 4 players.
 //          and it's methods to get the data.
+//V0.12 - Added heritage
 
 using System;
 using Tao.Sdl;
@@ -12,17 +13,17 @@ using System.Collections.Generic;
 
 namespace FinalProjectLudo
 {
-    class PlayerSelect
+    class PlayerSelect : Screen
     {
         protected IntPtr textPlayer1, textPlayer2, textPlayer3, textPlayer4,choosePlayer, 
             txtName, txtExit;
         protected Font font;
-        protected Hardware hardware;
         protected Image imgPlayerSelect;
         protected List<Player> players = new List<Player>();
         protected int num_players;
+        protected int num_limit;
         protected MenuScreen menu;
-        public PlayerSelect(Hardware hardware)
+        public PlayerSelect(Hardware hardware) : base(hardware)
         {
             bool exitPlayerSelect = false;
             imgPlayerSelect = new Image("img/playerSelect.jpg", 1152, 652);
@@ -293,6 +294,61 @@ namespace FinalProjectLudo
                     exit = true;
                 }
             } while (!exit);
+        }
+
+        public void ReadLimit()
+        {
+
+            char n;
+            string num = "";
+            font = new Font("font/fuenteproy.ttf", 12);
+            Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
+            IntPtr txtNumPlayers, txtNum;
+            txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Enter the limit of kills of the game:  ", black);
+
+            hardware.ClearScreen();
+            hardware.DrawImage(imgPlayerSelect);
+            hardware.WriteText(txtNumPlayers, 150, 200);
+            hardware.UpdateScreen();
+            do
+            {
+                n = hardware.ReadNumber();
+
+                if (n != '!' && n != '?')
+                {
+                    num += n;
+
+                    txtNum = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        Convert.ToString(num), black);
+                    hardware.WriteText(txtNum, 660, 200);
+                    
+                    hardware.UpdateScreen();
+                    
+                }
+
+
+            } while (n != '!');
+
+
+            num_limit = Convert.ToInt32(Convert.ToString(num));
+
+            txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Press enter to skip", black);
+            hardware.WriteText(txtExit, 640, 430);
+            hardware.UpdateScreen();
+
+            do
+            {
+
+            } while (hardware.KeyPressed() != Hardware.KEY_ENTER);
+
+
+        }
+
+        public int GetNumLimit()
+        {
+            return num_limit;
         }
     }
 }

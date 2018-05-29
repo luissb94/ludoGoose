@@ -1,6 +1,8 @@
 ﻿//Luis Selles
 //V0.02 - Creating credits Screen to read credits from file.
 //          Reading the credits from a file and showing it in the credits.
+//V0.12 - Added heritage
+
 using System;
 using Tao.Sdl;
 using System.IO;
@@ -8,14 +10,13 @@ using System.IO;
 
 namespace FinalProjectLudo
 {
-    class CreditsScreen
+    class CreditsScreen : Screen
     {
         protected IntPtr textCredits;
         protected Font font;
-        protected Hardware hardware;
         protected Image imgCred;
 
-        public CreditsScreen(Hardware hardware)
+        public CreditsScreen(Hardware hardware) : base(hardware)
         {
             imgCred = new Image("img/credits.jpg", 1152, 648);
             imgCred.MoveTo(0, 0);
@@ -32,6 +33,7 @@ namespace FinalProjectLudo
             hardware.ClearScreen();
             hardware.DrawImage(imgCred);
             hardware.UpdateScreen();
+
 
             try
             {
@@ -97,6 +99,8 @@ namespace FinalProjectLudo
                     " - Error: CreditsScreen - " + e.Message);
                 fileErrorLog.Close();
             }
+
+
 
         }
     }

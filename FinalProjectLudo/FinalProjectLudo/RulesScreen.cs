@@ -1,6 +1,8 @@
 ﻿//Luis Selles Blanes
 //V0.03 - Making the rules of the Ludo and Goose
 //      - They will be readed from a file.
+//V0.11 - Added try/catch to file access methods
+//V0.12 - Added heritage
 
 using System;
 using Tao.Sdl;
@@ -9,25 +11,24 @@ using System.Collections.Generic;
 
 namespace FinalProjectLudo
 {
-    class RulesScreen
+    class RulesScreen : Screen
     {
         protected IntPtr textRules, textTitle;
         protected Font font;
-        protected Hardware hardware;
         protected Image imgRules;
 
-        public RulesScreen(Hardware hardware)
+        public RulesScreen(Hardware hardware) : base(hardware)
         {
             imgRules = new Image("img/playerSelect.jpg", 1152, 648);
             imgRules.MoveTo(0, 0);
             this.hardware = hardware;
         }
-        
+
         //This method will find the rules.txt, if not found it will display an image of 
         //404 file not found, else it will display the rules.
         public void Show()
         {
-            
+
             bool exitRules = false;
             short yInit = 100;
             font = new Font("font/fuenteproy.ttf", 12);
@@ -36,10 +37,10 @@ namespace FinalProjectLudo
 
             textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "RULES", black);
-            
+
             try
             {
-                if(!File.Exists("files/rules.txt"))
+                if (!File.Exists("files/rules.txt"))
                 {
                     imgRules = new Image("img/404.jpg", 1152, 652);
                     imgRules.MoveTo(0, 0);
@@ -49,7 +50,7 @@ namespace FinalProjectLudo
                 }
                 else
                 {
-                    int countRulesMin = 0, countRulesMax = countRulesMin + 10 ;
+                    int countRulesMin = 0, countRulesMax = countRulesMin + 10;
                     hardware.ClearScreen();
                     hardware.DrawImage(imgRules);
                     hardware.UpdateScreen();
@@ -72,17 +73,17 @@ namespace FinalProjectLudo
                         hardware.ClearScreen();
                         hardware.DrawImage(imgRules);
                         hardware.WriteText(textTitle, 425, 50);
-                        for (int i  = countRulesMin; i < countRulesMax; i++)
+                        for (int i = countRulesMin; i < countRulesMax; i++)
                         {
                             textRules = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                                         lines[i], red);
-                            
+
                             hardware.WriteText(textRules, 50, yInit);
                             yInit += 50;
                         }
 
                         hardware.UpdateScreen();
-                        
+
                         do
                         {
                             if (hardware.KeyPressed() == Hardware.KEY_ESC)
@@ -95,19 +96,18 @@ namespace FinalProjectLudo
                                 countRulesMin--;
                                 yInit = 200;
                             }
-
                             if (hardware.KeyPressed() == Hardware.KEY_DOWN 
                                 && countRulesMax < (lines.Count - 1))
                             {
                                 countRulesMin++;
                                 yInit = 200;
                             }*/
-                        } while (!exitRules || hardware.KeyPressed() == 
+                        } while (!exitRules || hardware.KeyPressed() ==
                             Hardware.KEY_DOWN || hardware.KeyPressed() == Hardware.KEY_UP);
 
                     } while (!exitRules);
                 }
-                
+
             }
             catch (PathTooLongException)
             {

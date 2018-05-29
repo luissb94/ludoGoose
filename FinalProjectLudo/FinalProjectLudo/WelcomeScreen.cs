@@ -2,22 +2,22 @@
 //V0.01 - Creating WelcomeScreen Class.
 //V0.02 - Changing things to make the welcomeScreen works. 
 //              Added jpeg.dll to make it work
+//V0.12 - Added heritage
 
 using System;
 using Tao.Sdl;
 
 namespace FinalProjectLudo
 {
-    class WelcomeScreen
+    class WelcomeScreen : Screen
     {
         bool escPressed , exitGame;
         protected Image imgWelcome;
-        protected Hardware hardware;
         Font font;
         IntPtr textSpace;
         IntPtr myName;
 
-        public WelcomeScreen(Hardware hardware)
+        public WelcomeScreen(Hardware hardware) : base(hardware)
         {
             exitGame = false;
             imgWelcome = new Image("img/welcomescreen.jpg", 1152, 648);

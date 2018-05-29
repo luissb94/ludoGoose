@@ -1,21 +1,20 @@
 ﻿//Luis Sellés Blanes
 //V0.02 - Creating main menu of the game
 //V0.06 - Modified menuScreen and added RulesScreen
-
+//V0.12 - Added heritage
 using System;
 using Tao.Sdl;
 
 namespace FinalProjectLudo
 {
-    class MenuScreen
+    class MenuScreen : Screen
     {
         protected Image imgBack, imgArrow;
         protected int chosenGame = 1;
-        protected Hardware hardware;
         protected IntPtr txtSpace;
         protected Font font;
 
-        public MenuScreen(Hardware hardware)
+        public MenuScreen(Hardware hardware) : base(hardware)
         {
             imgBack = new Image("img/menuscreen.jpg", 1152, 648);
             imgBack.MoveTo(0, 0);
