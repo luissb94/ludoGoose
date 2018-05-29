@@ -15,13 +15,15 @@ namespace FinalProjectLudo
         protected bool isAtHome;
         protected bool isAtFinish;
         protected int posChip;
+        protected string boxPos;
         protected Box box;
         protected Image imgChip;
         protected List<Chip> chipList = new List<Chip>();
 
         public Chip() { }
 
-        public Chip(string color, int num_piece,bool isAtHome, bool isAtFinish, int poschip, Image imgChip)
+        public Chip(string color, int num_piece,bool isAtHome, 
+            bool isAtFinish, int poschip, Image imgChip, string boxPosition)
         {
             this.color = color;
             this.num_piece = num_piece;
@@ -29,6 +31,7 @@ namespace FinalProjectLudo
             this.isAtFinish = isAtFinish;
             this.isAtHome = isAtHome;
             this.imgChip = imgChip;
+            this.boxPos = boxPosition;
         }
 
         //Gets the position of the chip
@@ -36,6 +39,7 @@ namespace FinalProjectLudo
         {
             return posChip;
         }
+        
 
         //Sets the position of the chip
         public void SetPosChip(int i)
@@ -62,11 +66,19 @@ namespace FinalProjectLudo
         {
             return isAtHome;
         }
-
-        public Chip GetChip(string color, int num)
+        
+        //Method to get the pos of the chip at the box
+        //left or right.
+        public string GetBoxPos()
         {
-            return Chip;
+            return boxPos;
         }
+
+        public void SetBoxPos(string status)
+        {
+            this.boxPos = status;
+        }
+
 
         //Loads the data of the chips from a file
         public List<Chip> Load()
@@ -88,7 +100,8 @@ namespace FinalProjectLudo
                         
                         chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]), 
                             Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
-                            Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35)));
+                            Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
+                            lines[6]));
                         count++;
                     }
                 } while (line != null);

@@ -107,3 +107,4 @@ D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\gooseBoard.jpg
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxArrayDataLimitLess.txt
 D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\img\ludoLimitless.jpg
+D:\1º DAM\Programacion\ProyectoFinal\LudoGIT\FinalProjectLudo\FinalProjectLudo\bin\Debug\files\boxesData.txt

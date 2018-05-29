@@ -68,7 +68,7 @@ namespace FinalProjectLudo
         }
 
         //Gets which chip is in the 1nd box
-        public string GetPos1(int i)
+        /*public string GetPos1(int i)
         {
 
             return arrayBox[i].chipInside;
@@ -79,7 +79,7 @@ namespace FinalProjectLudo
         {
 
             return arrayBox[i].chipInside2;
-        }
+        }*/
 
         //Method to add a Chip into the box
         public void AddChip(Chip chip)
@@ -168,6 +168,7 @@ namespace FinalProjectLudo
                 } while (line != null);
 
                 file.Close();
+                
             }
             catch (PathTooLongException)
             {
@@ -201,6 +202,7 @@ namespace FinalProjectLudo
                     " - Error: Box.LoadData -" + e.Message);
                 fileErrorLog.Close();
             }
+
             return this.arrayBox;
         }
 

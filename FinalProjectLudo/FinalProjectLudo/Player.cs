@@ -18,6 +18,7 @@ namespace FinalProjectLudo
         protected Chip chip;
         protected List<Chip> playerChips;
         protected bool repeatTurn = false;
+        protected int kills = 0;
 
         public Player(string name, string color)
         {
@@ -54,6 +55,11 @@ namespace FinalProjectLudo
         {
             return this.count6roll;
         }
+        
+        public void AddCount6Rolls()
+        {
+            count6roll++;
+        }
 
         public void SetChipsOut()
         {
@@ -62,6 +68,16 @@ namespace FinalProjectLudo
         public int GetChipsOut()
         {
             return chipsOut;
+        }
+
+        public int GetKills()
+        {
+            return this.kills;
+        }
+
+        public void AddKills()
+        {
+            kills++;
         }
 
         public void SetRepeatTurn(bool status)
