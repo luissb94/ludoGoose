@@ -16,6 +16,7 @@ namespace FinalProjectLudo
         protected bool isAtFinish;
         protected int posChip;
         protected string boxPos;
+        protected int advancedPos = 0;
         protected Box box;
         protected Image imgChip;
         protected List<Chip> chipList = new List<Chip>();
@@ -23,7 +24,8 @@ namespace FinalProjectLudo
         public Chip() { }
 
         public Chip(string color, int num_piece,bool isAtHome, 
-            bool isAtFinish, int poschip, Image imgChip, string boxPosition)
+            bool isAtFinish, int poschip, Image imgChip, string boxPosition,
+            int adv)
         {
             this.color = color;
             this.num_piece = num_piece;
@@ -32,6 +34,7 @@ namespace FinalProjectLudo
             this.isAtHome = isAtHome;
             this.imgChip = imgChip;
             this.boxPos = boxPosition;
+            this.advancedPos = adv;
         }
 
         //Gets the position of the chip
@@ -66,7 +69,16 @@ namespace FinalProjectLudo
         {
             return isAtHome;
         }
+
+        public int GetAdvPos()
+        {
+            return this.advancedPos;
+        }
         
+        public void SetAdvPos(int roll)
+        {
+            advancedPos += roll;
+        }
         //Method to get the pos of the chip at the box
         //left or right.
         public string GetBoxPos()
@@ -103,7 +115,7 @@ namespace FinalProjectLudo
                             chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]),
                                 Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
                                 Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
-                                lines[6]));
+                                lines[6], Convert.ToInt32(lines[7])));
                             count++;
                         }
                     } while (line != null);
@@ -127,7 +139,7 @@ namespace FinalProjectLudo
                             chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]),
                                 Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
                                 Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
-                                lines[6]));
+                                lines[6], Convert.ToInt32(lines[7])));
                             count++;
                         }
                     } while (line != null);

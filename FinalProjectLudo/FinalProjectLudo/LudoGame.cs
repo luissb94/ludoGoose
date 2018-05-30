@@ -122,24 +122,29 @@ namespace FinalProjectLudo
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
+                                    
                                     break;
                                 case 2:
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 3:
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 4:
                                     if(!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 5:
@@ -151,18 +156,49 @@ namespace FinalProjectLudo
                                         player[turn].SetChipsOut();
                                         chip.SetPosChip(39);
                                         chip.SetisHome(false);
+                                        chip.SetAdvPos(1);
 
                                     }
                                     else
                                     {
-                                        chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        if (chip.GetPosChip() - 1 >= 64 && chip.GetPosChip() - 1 <= 68)
+                                        {
+                                            chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue - 68);
+                                            chip.SetAdvPos(rolledValue);
+                                        }
+                                        else if (chip.GetAdvPos() < 59)
+                                        {
+                                            chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                            player[turn].AddCount6Rolls();
+                                            chip.SetAdvPos(rolledValue);
+                                        }
+                                        else if (chip.GetAdvPos() == 58)
+                                        {
+                                            chip.SetPosChip(69);
+                                            player[turn].AddCount6Rolls();
+                                        }
                                     }
                                     break;
                                 case 6:
                                     if (!chip.GetisHome())
                                     {
-                                        chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
-                                        player[turn].AddCount6Rolls();
+                                        if (chip.GetPosChip() - 1 >= 63 && chip.GetPosChip() - 1 <= 68)
+                                        {
+                                            chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue - 68);
+                                            chip.SetAdvPos(rolledValue);
+                                        }
+                                        else if (chip.GetAdvPos() < 59)
+                                        {
+                                            chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                            player[turn].AddCount6Rolls();
+                                            chip.SetAdvPos(rolledValue);
+                                        }
+                                        else if(chip.GetAdvPos() >= 59)
+                                        {
+                                            chip.SetPosChip(68 + (chip.GetAdvPos() + rolledValue - 64));
+                                            player[turn].AddCount6Rolls();
+                                        }
+                                        
                                     }
                                     player[turn].SetRepeatTurn(true);
                                     break;
@@ -176,24 +212,28 @@ namespace FinalProjectLudo
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 2:
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 3:
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() -1 ) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 4:
                                     if (!chip.GetisHome())
                                     {
                                         chip.SetPosChip((chip.GetPosChip() - 1) + rolledValue);
+                                        chip.SetAdvPos(rolledValue);
                                     }
                                     break;
                                 case 5:
