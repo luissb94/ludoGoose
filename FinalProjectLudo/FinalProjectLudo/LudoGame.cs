@@ -43,7 +43,7 @@ namespace FinalProjectLudo
             this.dice = new Dice(hardware);
             this.boxes = new Box();
             this.chip = new Chip();
-            this.chipslist = chip.Load();
+            this.chipslist = chip.Load("ludo");
             this.player = playSelect.GetPlayerList();
         }
 

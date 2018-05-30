@@ -26,16 +26,20 @@ namespace FinalProjectLudo
             this.dice = new Dice(hardware);
             this.boxes = new Box();
             this.chip = new Chip();
-            this.chipslist = chip.Load();
+            this.chipslist = chip.Load("goose");
         }
 
         public void Play()
         {
+            int key;
+
+            playSelect.Show();
+
             hardware.ClearScreen();
             hardware.DrawImage(imgGoose);
             hardware.UpdateScreen();
-            int key;
 
+            
             do
             {
                 key = hardware.KeyPressed();

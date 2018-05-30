@@ -1,0 +1,4 @@
+red,1,true,false,0,img/redChip1.jpg,house
+blue,1,true,false,0,img/blueChip1.jpg,house
+green,1,true,false,0,img/greenChip1.jpg,house
+yellow,1,true,false,0,img/yellowChip1.jpg,house

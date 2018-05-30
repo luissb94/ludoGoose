@@ -81,31 +81,58 @@ namespace FinalProjectLudo
 
 
         //Loads the data of the chips from a file
-        public List<Chip> Load()
+        public List<Chip> Load(string mode)
         {
             try
             {
-                string fileChipData = "files/chipdata.txt";
-                StreamReader file = File.OpenText(fileChipData);
-                string line;
-                string[] lines;
-                int count = 0;
-
-                do
+                if( mode == "ludo")
                 {
-                    line = file.ReadLine();
-                    if(line != null)
+                    string fileChipData = "files/chipdata.txt";
+                    StreamReader file = File.OpenText(fileChipData);
+                    string line;
+                    string[] lines;
+                    int count = 0;
+
+                    do
                     {
-                        lines = line.Split(',');
-                        
-                        chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]), 
-                            Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
-                            Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
-                            lines[6]));
-                        count++;
-                    }
-                } while (line != null);
-                file.Close();
+                        line = file.ReadLine();
+                        if (line != null)
+                        {
+                            lines = line.Split(',');
+
+                            chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]),
+                                Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
+                                Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
+                                lines[6]));
+                            count++;
+                        }
+                    } while (line != null);
+                    file.Close();
+                }
+                else if(mode == "goose")
+                {
+                    string fileChipData = "files/chipdataGoose.txt";
+                    StreamReader file = File.OpenText(fileChipData);
+                    string line;
+                    string[] lines;
+                    int count = 0;
+
+                    do
+                    {
+                        line = file.ReadLine();
+                        if (line != null)
+                        {
+                            lines = line.Split(',');
+
+                            chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]),
+                                Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
+                                Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
+                                lines[6]));
+                            count++;
+                        }
+                    } while (line != null);
+                    file.Close();
+                }
             }
             catch (PathTooLongException)
             {

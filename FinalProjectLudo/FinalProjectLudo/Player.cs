@@ -90,9 +90,9 @@ namespace FinalProjectLudo
             return this.repeatTurn;
         }
 
-        public List<Chip> GetPlayerChip()
+        public List<Chip> GetPlayerChip(string mode)
         {
-            playerChips = chip.Load();
+            playerChips = chip.Load(mode);
             return this.playerChips;
         }
     }

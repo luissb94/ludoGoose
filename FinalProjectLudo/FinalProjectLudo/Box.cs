@@ -26,6 +26,24 @@ namespace FinalProjectLudo
         public string chipInside2;
     }
 
+    public struct BoxGoose
+    {
+        public int xRed;
+        public int yRed;
+        public int xBlue;
+        public int yBlue;
+        public int xGreen;
+        public int yGreen;
+        public int xYellow;
+        public int yYellow;
+        public bool isGoose;
+        public bool isBridge;
+        public bool isDice;
+        public bool isDeath;
+        public bool isLabrynth;
+        public bool isFinishBox;
+        public bool isWell;
+    }
 
     class Box
     {
@@ -66,20 +84,7 @@ namespace FinalProjectLudo
             }
 
         }
-
-        //Gets which chip is in the 1nd box
-        /*public string GetPos1(int i)
-        {
-
-            return arrayBox[i].chipInside;
-        }
-
-        //Gets which chip is in the 2nd box
-        public string GetPos2(int i)
-        {
-
-            return arrayBox[i].chipInside2;
-        }*/
+        
 
         //Method to add a Chip into the box
         public void AddChip(Chip chip)
