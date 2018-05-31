@@ -1,0 +1,34 @@
+1. At the start of the game all the chips are in the house of their color.
+2. The chips move counterclockwise.
+3. You must always move tab, you can only move when
+   the box in which you must stay is already occupied by two tabs.
+4. The player must draw a 5 to be able to take a chip from home,
+   with the first 5 you can get 2 chips at par.
+5. When you take a 5 and can not take out your house
+   because you already have two chips (own) in the output, 
+   you must move 5 boxes with another tab.
+6. If there were already 2 (which are not ours) when you have to take the chip,
+   we can take a chip and we will eat the last to have
+   placed in our exit, or the color other than
+   ours (if there was one ours).
+7. If we take out a 6, we do not have any records in our house,
+   we will count 12 instead of 6.
+8. By taking a 6 we can repeat the turn, if you take another 6 you will return
+   to repeat the turn, but if he takes another 6 (the third time) the last
+   tab that moved will return to your home. It will only be saved if it were
+   already in the red squares of before the goal.
+9. When placing two chips of the same player in a square
+   marked with a circle will produce a barrier, it will not
+   It could be surpassed by any card.
+10. When the player who has a created barrier draws a 6
+    you must open the barrier.
+11. If a chip falls in a white square and numbered occupied
+    for a piece of another color will eat it. The food tab
+    will go to your original house (of its same color). The player who 
+    eats will count 20 squares.
+12. In the exits and in the insurances, it is not possible to eat and
+    there may be two chips of different colors
+13. A chip enters the goal with an exact number of squares,
+    if the number is not exact, it can not be moved.
+14. When a chip enters the goal, it can count 10 with another chip.
+15. The player who places his 4 chips in goal, will win the game.

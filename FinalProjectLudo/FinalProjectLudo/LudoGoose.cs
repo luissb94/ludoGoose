@@ -15,6 +15,7 @@ namespace FinalProjectLudo
 {
     class LudoGoose
     {
+
         static void Main(string[] args)
         {
             LudoGoose game = new LudoGoose();
@@ -38,25 +39,25 @@ namespace FinalProjectLudo
                     switch(menu.GetChosenGame())
                     {
                         case 1:
-                            ludo.PlayGame();
+                            ludo.PlayGame(menu.GetLang());
                             break;
                         case 2:
-                            ludo.PlayLimitless();
+                            ludo.PlayLimitless(menu.GetLang());
                             break;
                         case 3:
-                            ludo.PlayOnline();
+                            ludo.PlayOnline(menu.GetLang());
                             break;
                         case 4:
-                            ludo.PlayVsIA();
+                            ludo.PlayVsIA(menu.GetLang());
                             break;
                         case 5:
-                            goose.Play();
+                            goose.Play(menu.GetLang());
                             break;
                         case 6:
-                            credits.Show();
+                            credits.Show(menu.GetLang());
                             break;
                         case 7:
-                            rules.Show();
+                            rules.Show(menu.GetLang());
                             break;
                     }
                 }

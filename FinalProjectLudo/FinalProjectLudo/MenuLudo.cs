@@ -19,13 +19,22 @@ namespace FinalProjectLudo
 
         //Show the first option of the menu. It only tells the user
         //to press one to roll the dices.
-        public void ShowFirstStep()
+        public void ShowFirstStep(string lang)
         {
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
-
-            txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+            
+            if(lang == "spanish")
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa 1 para tirar dados", red);
+            }
+            else
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Press 1 to roll the dice.", red);
+            }
+            
 
             hardware.WriteText(txtMenu, 640, 330);
             hardware.UpdateScreen();
@@ -35,15 +44,24 @@ namespace FinalProjectLudo
         //Shows the second option of the menu. It tells the user to
         //enter a chip number to move. The player can only move 1 of his
         // 4 chips
-        public void ShowSecondStep()
+        public void ShowSecondStep(string lang)
         {
             char addNumber = ' ';
             chipToMove = "";
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
-            txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+
+            if(lang == "spanish")
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Inserta numero de ficha: ", red);
+            }
+            else
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Enter chip number to move: ", red);
+            }
 
             hardware.WriteText(txtMenu, 640, 380);
             hardware.UpdateScreen();
@@ -69,35 +87,64 @@ namespace FinalProjectLudo
             return this.chipToMove;
         }
 
-        public void GetThirdStep()
+        public void GetThirdStep(string lang)
         {
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
-            txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+            
+            if(lang == "spanish")
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa espacio para pasar turno", red);
+            }
+            else
+            {
+                txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Press escape to skip the turn", red);
+            }
+            
             hardware.WriteText(txtMenu, 640, 430);
             hardware.UpdateScreen();
         }
 
-        public void GetRepeatText()
+        public void GetRepeatText(string lang)
         {
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             IntPtr txtRepeat;
-            txtRepeat = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+
+            if(lang == "spanish")
+            {
+                txtRepeat = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Has de repetir tu turno!: ", yellow);
+            }
+            else
+            {
+                txtRepeat = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "You have to REPEAT your turn!: ", yellow);
+            }
+            
 
             hardware.WriteText(txtRepeat, 640, 550);
             hardware.UpdateScreen();
         }
 
-        public void GetErrorChip()
+        public void GetErrorChip(string lang)
         {
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             IntPtr txtError;
-            txtError = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Wrong chip number: ", yellow);
+
+            if (lang == "spanish")
+            {
+                txtError = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Numero de ficha erroneo", yellow);
+            }
+            else
+            {
+                txtError = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Wrong chip number", yellow);
+            }
 
             hardware.WriteText(txtError, 640, 550);
             hardware.UpdateScreen();

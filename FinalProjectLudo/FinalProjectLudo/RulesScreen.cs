@@ -26,7 +26,7 @@ namespace FinalProjectLudo
 
         //This method will find the rules.txt, if not found it will display an image of 
         //404 file not found, else it will display the rules.
-        public void Show()
+        public void Show(string lang)
         {
 
             bool exitRules = false;
@@ -34,13 +34,25 @@ namespace FinalProjectLudo
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
+            string fileName;
 
-            textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "RULES", black);
+            if(lang == "spanish")
+            {
+                textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "REGLAS DEL PARCHIS", black);
+                fileName = "files/rules.txt";
+            }
+            else
+            {
+                textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "LUDO RULES", black);
+                fileName = "files/rulesEnglish.txt";
+            }
+            
 
             try
             {
-                if (!File.Exists("files/rules.txt"))
+                if (!File.Exists(fileName))
                 {
                     imgRules = new Image("img/404.jpg", 1152, 652);
                     imgRules.MoveTo(0, 0);
@@ -56,7 +68,7 @@ namespace FinalProjectLudo
                     hardware.UpdateScreen();
                     List<string> lines = new List<string>();
 
-                    StreamReader rulesFile = File.OpenText("files/rules.txt");
+                    StreamReader rulesFile = File.OpenText(fileName);
                     string line = rulesFile.ReadLine();
                     while (line != null)
                     {
@@ -113,32 +125,69 @@ namespace FinalProjectLudo
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: The path is too long");
+
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - La ruta es muy larga");
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - The path is too long");
+                }
+
+
                 fileErrorLog.Close();
             }
             catch (FileNotFoundException)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: The file is not found");
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - No se encuentra el fichero");
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - The file is not found");
+                }
+
                 fileErrorLog.Close();
             }
             catch (IOException e)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: " + e.Message);
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - " + e.Message);
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - " + e.Message);
+                }
                 fileErrorLog.Close();
             }
             catch (Exception e)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
-                    " - Error: " + e.Message);
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - " + e.Message);
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: RulesScreen - " + e.Message);
+                }
+
                 fileErrorLog.Close();
             }
         }

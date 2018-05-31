@@ -26,14 +26,23 @@ namespace FinalProjectLudo
 
         //Creating Show method, it will show the credits one line by one.
         //If you click ESCAPE after all the credits are shown it will exit from the screen.
-        public void Show()
+        public void Show(string lang)
         {
             short yInit = 200;
             bool finish = false;
             hardware.ClearScreen();
             hardware.DrawImage(imgCred);
             hardware.UpdateScreen();
+            string fileName;
 
+            if(lang == "spanish")
+            {
+                fileName = "files/credits.txt";
+            }
+            else
+            {
+                fileName = "files/creditsEnglish.txt";
+            }
 
             try
             {
@@ -44,7 +53,7 @@ namespace FinalProjectLudo
                     font = new Font("font/fuenteproy.ttf", 20);
                     Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
 
-                    string[] lines = File.ReadAllLines("files/credits.txt");
+                    string[] lines = File.ReadAllLines(fileName);
 
                     for (int i = 0; i < lines.Length; i++)
                     {
@@ -71,32 +80,69 @@ namespace FinalProjectLudo
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+
+                if(lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: CreditsScreen - La ruta es muy larga");
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
                     " - Error: CreditsScreen - The path is too long");
+                }
+                
+
                 fileErrorLog.Close();
             }
             catch (FileNotFoundException)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: CreditsScreen - No se encuentra el fichero");
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
                     " - Error: CreditsScreen - The file is not found");
+                }
+                
                 fileErrorLog.Close();
             }
             catch (IOException e)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
                     " - Error: CreditsScreen - " + e.Message);
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: CreditsScreen - " + e.Message);
+                }
                 fileErrorLog.Close();
             }
             catch (Exception e)
             {
                 DateTime now = DateTime.Now;
                 StreamWriter fileErrorLog = File.AppendText("files/error.log");
-                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                if (lang == "spanish")
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
                     " - Error: CreditsScreen - " + e.Message);
+                }
+                else
+                {
+                    fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: CreditsScreen - " + e.Message);
+                }
+                
                 fileErrorLog.Close();
             }
 

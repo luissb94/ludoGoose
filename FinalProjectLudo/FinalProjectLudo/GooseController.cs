@@ -29,11 +29,11 @@ namespace FinalProjectLudo
             this.chipslist = chip.Load("goose");
         }
 
-        public void Play()
+        public void Play(string lang)
         {
             int key;
 
-            playSelect.Show();
+            playSelect.Show(lang);
 
             hardware.ClearScreen();
             hardware.DrawImage(imgGoose);

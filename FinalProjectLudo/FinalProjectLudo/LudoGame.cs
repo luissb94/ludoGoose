@@ -170,7 +170,7 @@ namespace FinalProjectLudo
                                         {
                                             chip.SetPosChip(68 + (chip.GetAdvPos() + rolledValue - 64));
                                             chip.SetAdvPos(rolledValue);
-                                            player[turn].AddCount6Rolls();
+                                            
                                         }
 
                                     }
@@ -853,11 +853,11 @@ namespace FinalProjectLudo
             }
         }
 
-        public void PlayGame()
+        public void PlayGame(string lang)
         {
             bool exit = false;
             string arrayData = "files/boxArrayData.txt";
-            playSelect.Show();
+            playSelect.Show(lang);
 
             //Define colors, roll, chips variable values;
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
@@ -865,10 +865,8 @@ namespace FinalProjectLudo
             Sdl.SDL_Color green = new Sdl.SDL_Color(0, 255, 0);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             font = new Font("font/fuenteproy.ttf", 12);
-            txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Enter the roll 1 to 68: ", red);
-
             
+
             arrayBox = boxes.LoadData(arrayData);
             int chipToMove;
             
@@ -878,13 +876,27 @@ namespace FinalProjectLudo
             for (int i = 0; i < turn; i++)
             {
                 exit = false;
-                //1 - Shows img background, writes the turn and the name of the player
-                //      and his chips.
-                txtNames = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+
+                if (lang == "spanish")
+                {
+                    txtNames = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Turno:  " + player[i].GetName() + "            Color: " +
+                        player[i].GetColor(), red);
+                    txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Fichas fuera: " + player[i].GetChipsOut(), yellow);
+                    txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Mete roll entre 1 y 68: ", red);
+                }
+                else
+                {
+                    txtNames = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Turn:  " + player[i].GetName() + "            Color: " +
                         player[i].GetColor(), red);
-                txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                "Chips out: " + player[i].GetChipsOut(), yellow);
+                    txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Chips out: " + player[i].GetChipsOut(), yellow);
+                    txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Enter the roll 1 to 68: ", red);
+                }
 
                 int rollValue;
 
@@ -896,7 +908,7 @@ namespace FinalProjectLudo
                 hardware.UpdateScreen();
 
                 //Commented because of the devRoll.
-                /*menu.ShowFirstStep();
+                /*menu.ShowFirstStep(lang);
 
                 do
                 {
@@ -959,13 +971,13 @@ namespace FinalProjectLudo
                 {
                     
                     //The user enters the chip he wants to move.
-                    menu.ShowSecondStep();
+                    menu.ShowSecondStep(lang);
 
                     hardware.Clear("chip");
                     chipToMove = Convert.ToInt32(menu.GetSecondStepValue());
                     if(chipToMove < 1 || chipToMove > 4)
                     {
-                        menu.GetErrorChip();
+                        menu.GetErrorChip(lang);
                     }
                 } while (chipToMove < 1 || chipToMove > 4);
 
@@ -975,7 +987,7 @@ namespace FinalProjectLudo
                 
 
                 //User must press escape to skip the turn
-                menu.GetThirdStep();
+                menu.GetThirdStep(lang);
 
 
                 if (player[i].GetWin())
@@ -986,7 +998,7 @@ namespace FinalProjectLudo
                 {
                     player[i].SetRepeatTurn(false);
                     i--;
-                    menu.GetRepeatText();
+                    menu.GetRepeatText(lang);
                 }
                 else if (i == playSelect.GetNumPlayers() - 1 && !player[i].GetWin())
                 {
@@ -1007,7 +1019,7 @@ namespace FinalProjectLudo
             
         }
 
-        public void PlayLimitless()
+        public void PlayLimitless(string lang)
         {
             short yInitchip;
             bool exit = false;
@@ -1015,9 +1027,9 @@ namespace FinalProjectLudo
             int turnLimit = 0;
 
 
-            playSelect.ReadLimit();
+            playSelect.ReadLimit(lang);
 
-            playSelect.Show();
+            playSelect.Show(lang);
             //Define colors, roll, chips variable values;
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
@@ -1061,7 +1073,7 @@ namespace FinalProjectLudo
                 hardware.UpdateScreen();
 
                 //Commented because of the devRoll.
-                /*menu.ShowFirstStep();
+                /*menu.ShowFirstStep(lang);
 
                 do
                 {
@@ -1124,13 +1136,13 @@ namespace FinalProjectLudo
                 {
 
                     //The user enters the chip he wants to move.
-                    menu.ShowSecondStep();
+                    menu.ShowSecondStep(lang);
 
                     hardware.Clear("chip");
                     chipToMove = Convert.ToInt32(menu.GetSecondStepValue());
                     if (chipToMove < 1 || chipToMove > 4)
                     {
-                        menu.GetErrorChip();
+                        menu.GetErrorChip(lang);
                     }
                 } while (chipToMove < 1 || chipToMove > 4);
 
@@ -1140,7 +1152,7 @@ namespace FinalProjectLudo
 
 
                 //User must press escape to skip the turn
-                menu.GetThirdStep();
+                menu.GetThirdStep(lang);
 
                 
                 if (turnLimit == playSelect.GetNumPlayers() - 1)
@@ -1151,7 +1163,7 @@ namespace FinalProjectLudo
                 {
                     player[turnLimit].SetRepeatTurn(false);
                     turnLimit--;
-                    menu.GetRepeatText();
+                    menu.GetRepeatText(lang);
                 }
                 else
                 {
@@ -1161,14 +1173,14 @@ namespace FinalProjectLudo
             } while (player[turnLimit].GetKills() <= playSelect.GetNumLimit());
         }
 
-        public void PlayOnline()
+        public void PlayOnline(string lang)
         {
             bool exit = false;
 
             short yInitchip;
             string arrayData = "files/boxArrayDataLimitless.txt";
     
-            playSelect.Show();
+            playSelect.Show(lang);
 
             //Define colors, roll, chips variable values;
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
@@ -1196,14 +1208,14 @@ namespace FinalProjectLudo
         }
 
 
-        public void PlayVsIA()
+        public void PlayVsIA(string lang)
         {
             bool exit = false;
 
             short yInitchip;
             string arrayData = "files/boxArrayDataLimitless.txt";
 
-            playSelect.ShowPSAgainstIA();
+            playSelect.ShowPSAgainstIA(lang);
 
             //Define colors, roll, chips variable values;
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);

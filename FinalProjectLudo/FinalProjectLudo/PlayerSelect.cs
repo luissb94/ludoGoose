@@ -33,14 +33,31 @@ namespace FinalProjectLudo
         }
 
         //Method to get the number of players that are going to play.
-        public void ShownNumPlayerSelect()
+        public void ShownNumPlayerSelect(string lang)
         {
             char n;
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
             IntPtr txtNumPlayers, txtNum;
-            txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+
+            
+            if (lang == "spanish")
+            {
+                txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Inserta numero de jugadores entre 2 y 4:  ", black);
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                                "Presiona intro para salir", black);
+            }
+            else
+            {
+                txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Enter number of players between 2 and 4:  ", black);
+
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                                "Press enter to skip", black);
+            }
+
+            
 
             hardware.WriteText(txtNumPlayers, 150, 200);
             hardware.UpdateScreen();
@@ -58,8 +75,7 @@ namespace FinalProjectLudo
                             Convert.ToString(num_players), black);
                         hardware.WriteText(txtNum, 770, 200);
 
-                        txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                            "Press enter to skip", black);
+                        
                         hardware.WriteText(txtExit, 640, 430);
 
                         hardware.UpdateScreen();
@@ -84,7 +100,7 @@ namespace FinalProjectLudo
 
         //This method will show 4 "insert player name" and, coming soon, it will let
         //the users enter their name.
-        public void Show()
+        public void Show(string lang)
         {
             bool exit = false;
             string name = "";
@@ -99,24 +115,51 @@ namespace FinalProjectLudo
 
             Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
 
-            textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+            if(lang == "spanish")
+            {
+                textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Nombre jugador uno: ", red);
+
+                textPlayer2 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Nombre jugdor dos:", blue);
+
+                textPlayer3 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Nombre jugador tres:", green);
+
+                textPlayer4 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Nombre jugador cuatro:", yellow);
+
+                choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "INSERTAD LOS NOMBRES:", black);
+
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa enter para jugar!", black);
+            }
+            else
+            {
+                textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Name player one: ", red);
 
-            textPlayer2 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Name player two:", blue);
+                textPlayer2 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Name player two:", blue);
 
-            textPlayer3 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Name player three:", green);
+                textPlayer3 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Name player three:", green);
 
-            textPlayer4 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Name player four:", yellow);
+                textPlayer4 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "Name player four:", yellow);
 
-            choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "ENTER YOUR NAMES:", black);
+                choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "ENTER YOUR NAMES:", black);
+
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press Enter to play!", black);
+            }
+            
 
             hardware.ClearScreen();
             hardware.DrawImage(imgPlayerSelect);
-            ShownNumPlayerSelect();
+            ShownNumPlayerSelect(lang);
             hardware.ClearScreen();
             hardware.DrawImage(imgPlayerSelect);
             /*hardware.WriteText(textPlayer1, 200, 200);
@@ -188,8 +231,7 @@ namespace FinalProjectLudo
 
             exit = false;
 
-            txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Press Enter to play!", black);
+            
 
             hardware.WriteText(txtExit, 350, 600);
             hardware.UpdateScreen();
@@ -204,7 +246,7 @@ namespace FinalProjectLudo
         }
 
         //This method is only to set player name against IA.
-        public void ShowPSAgainstIA()
+        public void ShowPSAgainstIA(string lang)
         {
             bool exit = false;
             string name = "";
@@ -213,11 +255,27 @@ namespace FinalProjectLudo
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
 
-            textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+            if(lang == "spanish")
+            {
+                textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Nombre jugador uno: ", red);
+
+                choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "INSERTA TU NOMBRE:", black);
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa intro para jugar!", black);
+            }
+            else
+            {
+                textPlayer1 = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Name player one: ", red);
 
-            choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "ENTER YOUR NAME:", black);
+                choosePlayer = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "ENTER YOUR NAME:", black);
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press Enter to play!", black);
+            }
+            
 
             hardware.ClearScreen();
             hardware.DrawImage(imgPlayerSelect);
@@ -243,10 +301,6 @@ namespace FinalProjectLudo
 
             } while (addLetter != '!');
             
-            
-
-            txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Press Enter to play!", black);
 
             hardware.WriteText(txtExit, 350, 600);
             hardware.UpdateScreen();
@@ -265,7 +319,7 @@ namespace FinalProjectLudo
             return this.players;
         }
 
-        public void ShowPSOnline()
+        public void ShowPSOnline(string lang)
         {
             bool exit = false;
 
@@ -296,7 +350,7 @@ namespace FinalProjectLudo
             } while (!exit);
         }
 
-        public void ReadLimit()
+        public void ReadLimit(string lang)
         {
 
             char n;
@@ -304,8 +358,18 @@ namespace FinalProjectLudo
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
             IntPtr txtNumPlayers, txtNum;
-            txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+
+            if(lang == "spanish")
+            {
+                txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Inserta el limite de muertes:  ", black);
+            }
+            else
+            {
+                txtNumPlayers = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Enter the limit of kills of the game:  ", black);
+            }
+            
 
             hardware.ClearScreen();
             hardware.DrawImage(imgPlayerSelect);
