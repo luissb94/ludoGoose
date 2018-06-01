@@ -124,12 +124,12 @@ namespace FinalProjectLudo
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
                                     
                                     //Now check gooses.
-                                    if(chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if(chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -138,12 +138,12 @@ namespace FinalProjectLudo
                                     break;
                                 case 2:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if (chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -152,12 +152,12 @@ namespace FinalProjectLudo
                                     break;
                                 case 3:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if (chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -166,12 +166,12 @@ namespace FinalProjectLudo
                                     break;
                                 case 4:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if (chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -180,12 +180,12 @@ namespace FinalProjectLudo
                                     break;
                                 case 5:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if (chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -194,12 +194,12 @@ namespace FinalProjectLudo
                                     break;
                                 case 6:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
+                                    if (chip.GetPosChip() == 5 || chip.GetPosChip() == 9 ||
+                                        chip.GetPosChip() == 14 || chip.GetPosChip() == 18 ||
+                                        chip.GetPosChip() == 23 || chip.GetPosChip() == 27 ||
+                                        chip.GetPosChip() == 32 || chip.GetPosChip() == 36 ||
+                                        chip.GetPosChip() == 45 || chip.GetPosChip() == 50 ||
+                                        chip.GetPosChip() == 54)
                                     {
                                         JumpToNextGoose(chip.GetPosChip());
                                         player[turn].SetRepeatTurn(true);
@@ -215,87 +215,21 @@ namespace FinalProjectLudo
                             {
                                 case 1:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 2:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 3:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 4:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 5:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 6:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     player[turn].SetRepeatTurn(true);
                                     break;
                             }
@@ -305,87 +239,21 @@ namespace FinalProjectLudo
                             {
                                 case 1:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 2:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 3:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 4:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 5:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 6:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     player[turn].SetRepeatTurn(true);
                                     break;
                             }
@@ -395,87 +263,21 @@ namespace FinalProjectLudo
                             {
                                 case 1:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 2:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 3:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 4:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 5:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     break;
                                 case 6:
                                     chip.SetPosChip((chip.GetPosChip() + rolledValue) - 1);
-                                    if (chip.GetPosChip() == 4 || chip.GetPosChip() == 8 ||
-                                        chip.GetPosChip() == 13 || chip.GetPosChip() == 17 ||
-                                        chip.GetPosChip() == 22 || chip.GetPosChip() == 26 ||
-                                        chip.GetPosChip() == 31 || chip.GetPosChip() == 35 ||
-                                        chip.GetPosChip() == 44 || chip.GetPosChip() == 49 ||
-                                        chip.GetPosChip() == 53)
-                                    {
-                                        JumpToNextGoose(chip.GetPosChip());
-                                        player[turn].SetRepeatTurn(true);
-                                        hardware.WriteText(txtOca, 670, 500);
-                                    }
                                     player[turn].SetRepeatTurn(true);
                                     break;
                             }
@@ -493,7 +295,7 @@ namespace FinalProjectLudo
             bool exit;
             int chipToMove;
 
-            IntPtr txtNames, txtChipsOut, txtDev;
+            IntPtr txtNames, txtChipsOut, txtDev, txtExit;
             int key;
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color blue = new Sdl.SDL_Color(0, 0, 255);
@@ -501,7 +303,7 @@ namespace FinalProjectLudo
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
             font = new Font("font/fuenteproy.ttf", 12);
             txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Enter the roll 1 to 68: ", red);
+                    "IS NOT FINISHED, PRESS ESCAPE ", red);
 
             playSelect.Show(lang);
 
@@ -522,7 +324,9 @@ namespace FinalProjectLudo
                     txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Fichas fuera: " + player[i].GetChipsOut(), yellow);
                     txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                        "Mete roll entre 1 y 68: ", red);
+                        "TODAVIA EN DESARROLLO", red);
+                    txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "ESCAPE PARA SALIR", red);
                 }
                 else
                 {
@@ -532,19 +336,23 @@ namespace FinalProjectLudo
                     txtChipsOut = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "Chips out: " + player[i].GetChipsOut(), yellow);
                     txtDev = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                        "Enter the roll 1 to 68: ", red);
+                        "STILL DEVELOPING ", red);
+                    txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        "ESCAPE FOR EXIT", red);
                 }
 
                 int rollValue = 0;
                 //Draw the 16 chips in their houses.
                 DisplayChips();
 
-                hardware.WriteText(txtNames, 650, 20);
-                hardware.WriteText(txtChipsOut, 650, 40);
+                hardware.WriteText(txtNames, 670, 20);
+                hardware.WriteText(txtChipsOut, 670, 40);
+                hardware.WriteText(txtDev, 750, 300);
+                hardware.WriteText(txtExit, 750, 400);
                 hardware.UpdateScreen();
 
                 //Commented because of the devRoll.
-                menu.ShowFirstStep(lang);
+                /*menu.ShowFirstStep(lang);
 
                 do
                 {
@@ -623,13 +431,14 @@ namespace FinalProjectLudo
                 }
 
 
-                /*boxes.SaveData(arrayBox);*/
+                boxes.SaveData(arrayBox);*/
 
                 do
                 {
                     if (hardware.KeyPressed() == Hardware.KEY_ESC)
                     {
                         exit = true;
+                        i = 4;
                     }
                 } while (!exit);
             }

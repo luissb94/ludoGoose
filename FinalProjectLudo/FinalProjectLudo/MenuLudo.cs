@@ -105,7 +105,7 @@ namespace FinalProjectLudo
             if(lang == "spanish")
             {
                 txtMenu = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                    "Pulsa espacio para pasar turno", red);
+                    "Pulsa escape para pasar turno", red);
             }
             else
             {
