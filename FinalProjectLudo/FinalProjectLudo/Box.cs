@@ -53,7 +53,7 @@ namespace FinalProjectLudo
         private int Number { get; set; }
         private List<Chip> chips = new List<Chip>();
         protected BoxProperties[] arrayBox = new BoxProperties[115];
-
+        protected BoxGoose[] arrayBoxGoose = new BoxGoose[63];
 
         public Box() {
         }
@@ -210,6 +210,85 @@ namespace FinalProjectLudo
 
             return this.arrayBox;
         }
+
+
+        //This method reads the data from a given file. It's format is
+        //x,y,color,isMultipiece,isHouse,isFinishBox,isEmpty
+        public BoxGoose[] LoadDataG(string fileName)
+        {
+            try
+            {
+                StreamReader file = File.OpenText(fileName);
+                string line;
+                string[] lineSplitted;
+                int count = 0;
+
+                do
+                {
+                    line = file.ReadLine();
+
+                    if (line != null)
+                    {
+                        lineSplitted = line.Split(',');
+                        arrayBoxGoose[count].xRed = Convert.ToInt32(lineSplitted[0]);
+                        arrayBoxGoose[count].yRed = Convert.ToInt32(lineSplitted[1]);
+                        arrayBoxGoose[count].xBlue = Convert.ToInt32(lineSplitted[2]);
+                        arrayBoxGoose[count].yBlue = Convert.ToInt32(lineSplitted[3]);
+                        arrayBoxGoose[count].xGreen = Convert.ToInt32(lineSplitted[4]);
+                        arrayBoxGoose[count].yGreen = Convert.ToInt32(lineSplitted[5]);
+                        arrayBoxGoose[count].xYellow = Convert.ToInt32(lineSplitted[6]);
+                        arrayBoxGoose[count].yYellow = Convert.ToInt32(lineSplitted[7]);
+                        arrayBoxGoose[count].isGoose = Convert.ToBoolean(lineSplitted[8]);
+                        arrayBoxGoose[count].isBridge = Convert.ToBoolean(lineSplitted[9]);
+                        arrayBoxGoose[count].isDice = Convert.ToBoolean(lineSplitted[10]);
+                        arrayBoxGoose[count].isDeath = Convert.ToBoolean(lineSplitted[11]);
+                        arrayBoxGoose[count].isLabrynth = Convert.ToBoolean(lineSplitted[12]);
+                        arrayBoxGoose[count].isFinishBox = Convert.ToBoolean(lineSplitted[13]);
+                        arrayBoxGoose[count].isWell = Convert.ToBoolean(lineSplitted[14]);
+
+                        count++;
+                    }
+                } while (line != null);
+
+                file.Close();
+
+            }
+            catch (PathTooLongException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadDataGoose - The path is too long");
+                fileErrorLog.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadDataGoose - The file is not found");
+                fileErrorLog.Close();
+            }
+            catch (IOException e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadDataGoose - " + e.Message);
+                fileErrorLog.Close();
+            }
+            catch (Exception e)
+            {
+                DateTime now = DateTime.Now;
+                StreamWriter fileErrorLog = File.AppendText("files/error.log");
+                fileErrorLog.WriteLine(now.ToString("yyyy-MM-dd HH:mm:ss") +
+                    " - Error: Box.LoadDataGoose - " + e.Message);
+                fileErrorLog.Close();
+            }
+
+            return this.arrayBoxGoose;
+        }
+
 
         //Method to save data
         public void SaveData(BoxProperties[] boxes)

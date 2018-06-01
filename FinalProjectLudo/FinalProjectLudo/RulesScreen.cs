@@ -28,6 +28,7 @@ namespace FinalProjectLudo
         //404 file not found, else it will display the rules.
         public void Show(string lang)
         {
+            IntPtr txtExit;
 
             bool exitRules = false;
             short yInit = 100;
@@ -41,11 +42,16 @@ namespace FinalProjectLudo
                 textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "REGLAS DEL PARCHIS", black);
                 fileName = "files/rules.txt";
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa escape para salir", black);
             }
             else
             {
                 textTitle = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
                     "LUDO RULES", black);
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press Escape to exit", black);
+
                 fileName = "files/rulesEnglish.txt";
             }
             
@@ -85,6 +91,7 @@ namespace FinalProjectLudo
                         hardware.ClearScreen();
                         hardware.DrawImage(imgRules);
                         hardware.WriteText(textTitle, 425, 50);
+                        hardware.WriteText(txtExit, 400, 600);
                         for (int i = countRulesMin; i < countRulesMax; i++)
                         {
                             textRules = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),

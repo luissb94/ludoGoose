@@ -28,24 +28,32 @@ namespace FinalProjectLudo
         //If you click ESCAPE after all the credits are shown it will exit from the screen.
         public void Show(string lang)
         {
+            IntPtr txtExit;
             short yInit = 200;
             bool finish = false;
+            font = new Font("font/fuenteproy.ttf", 20);
             hardware.ClearScreen();
             hardware.DrawImage(imgCred);
-            hardware.UpdateScreen();
             string fileName;
+            Sdl.SDL_Color black = new Sdl.SDL_Color(0, 0, 0);
 
-            if(lang == "spanish")
+            if (lang == "spanish")
             {
                 fileName = "files/credits.txt";
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Pulsa escape para salir", black);
             }
             else
             {
                 fileName = "files/creditsEnglish.txt";
+                txtExit = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    "Press escape to exit", black);
             }
 
             try
             {
+                hardware.WriteText(txtExit, 300, 600);
+                hardware.UpdateScreen();
                 while (!finish)
                 {
                     yInit = 200;
@@ -61,7 +69,6 @@ namespace FinalProjectLudo
                             lines[i], blue);
                         hardware.WriteText(textCredits, 300, yInit);
                         hardware.UpdateScreen();
-                        hardware.Pause(3000);
                         yInit += 100;
 
                     }

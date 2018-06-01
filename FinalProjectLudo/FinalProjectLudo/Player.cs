@@ -19,6 +19,7 @@ namespace FinalProjectLudo
         protected List<Chip> playerChips;
         protected bool repeatTurn = false;
         protected int kills = 0;
+        protected int chipsIn;
 
         public Player(string name, string color)
         {
@@ -29,6 +30,7 @@ namespace FinalProjectLudo
             this.count6roll = 0;
             this.chip = new Chip();
             this.playerChips = new List<Chip>();
+            this.chipsIn = 0;
         }
 
         public string GetName()
@@ -56,6 +58,16 @@ namespace FinalProjectLudo
             return this.count6roll;
         }
         
+        public void AddWinChip()
+        {
+            this.chipsIn++;
+        }
+
+        public int GetWinChips()
+        {
+            return this.chipsIn;
+        }
+
         public void AddCount6Rolls()
         {
             count6roll++;

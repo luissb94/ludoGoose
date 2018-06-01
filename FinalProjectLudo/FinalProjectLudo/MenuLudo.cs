@@ -11,6 +11,8 @@ namespace FinalProjectLudo
         protected Hardware hardware;
         protected Font font;
         protected string chipToMove = "";
+        protected int nchip;
+
 
         public MenuLudo(Hardware hardware)
         {
@@ -44,10 +46,12 @@ namespace FinalProjectLudo
         //Shows the second option of the menu. It tells the user to
         //enter a chip number to move. The player can only move 1 of his
         // 4 chips
-        public void ShowSecondStep(string lang)
+        public int ShowSecondStep(string lang)
         {
             char addNumber = ' ';
             chipToMove = "";
+            nchip = 0;
+
             font = new Font("font/fuenteproy.ttf", 12);
             Sdl.SDL_Color red = new Sdl.SDL_Color(255, 0, 0);
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
@@ -78,7 +82,13 @@ namespace FinalProjectLudo
                 hardware.UpdateScreen();
 
             } while (addNumber != '!');
-            
+
+            if(chipToMove != "")
+            {
+                nchip = Convert.ToInt32(chipToMove);
+            }
+
+            return nchip;
         }
 
         //Gets the number of the chip the player wants to move.
@@ -147,6 +157,27 @@ namespace FinalProjectLudo
             }
 
             hardware.WriteText(txtError, 640, 550);
+            hardware.UpdateScreen();
+        }
+
+        public void ShowWinner(string name, string lang)
+        {
+            hardware.ClearScreen();
+            IntPtr txtWinner;
+            Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
+
+            if(lang == "spanish")
+            {
+                txtWinner = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    name+" HA GANADO LA PARTIDA!", yellow);
+            }
+            else
+            {
+                txtWinner = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                    name+" HAS WON THE GAME", yellow);
+            }
+
+            hardware.WriteText(txtWinner, 575, 300);
             hardware.UpdateScreen();
         }
     }

@@ -37,6 +37,18 @@ namespace FinalProjectLudo
             this.advancedPos = adv;
         }
 
+        public Chip(string color, int num_piece, bool isAtHome,
+            bool isAtFinish, int poschip, Image imgChip, int adv)
+        {
+            this.color = color;
+            this.num_piece = num_piece;
+            this.posChip = poschip;
+            this.isAtFinish = isAtFinish;
+            this.isAtHome = isAtHome;
+            this.imgChip = imgChip;
+            this.advancedPos = adv;
+        }
+
         //Gets the position of the chip
         public int GetPosChip()
         {
@@ -121,7 +133,7 @@ namespace FinalProjectLudo
                     } while (line != null);
                     file.Close();
                 }
-                else if(mode == "goose")
+                else if( mode == "goose")
                 {
                     string fileChipData = "files/chipdataGoose.txt";
                     StreamReader file = File.OpenText(fileChipData);
@@ -139,7 +151,7 @@ namespace FinalProjectLudo
                             chipList.Add(new Chip(lines[0], Convert.ToInt32(lines[1]),
                                 Convert.ToBoolean(lines[2]), Convert.ToBoolean(lines[3]),
                                 Convert.ToInt32(lines[4]), new Image(lines[5], 35, 35),
-                                lines[6], Convert.ToInt32(lines[7])));
+                                Convert.ToInt32(lines[6])));
                             count++;
                         }
                     } while (line != null);

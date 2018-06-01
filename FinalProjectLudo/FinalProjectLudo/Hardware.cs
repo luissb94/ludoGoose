@@ -315,9 +315,6 @@ namespace FinalProjectLudo
                 case KEY_ENTER:
                     number = '!';
                     break;
-                case KEY_DELETE:
-                    number = ' ';
-                    break;
                 case KEY_1:
                     number = '1';
                     break;
@@ -347,9 +344,6 @@ namespace FinalProjectLudo
                     break;
                 case KEY_0:
                     number = '0';
-                    break;
-                default:
-                    number = '?';
                     break;
             }
 

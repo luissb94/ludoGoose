@@ -37,6 +37,7 @@ namespace FinalProjectLudo
         //make tests.
         public int GetDevRoll()
         {
+            number = 0;
             char addNumber = ' ';
             string rollValue = "";
             Sdl.SDL_Color yellow = new Sdl.SDL_Color(255, 255, 0);
